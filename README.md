@@ -1,39 +1,76 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+# AstroPrint.com
+##### Final Milestone Project by Seán Carley
+This e-commerce website is intended to allow photographers sell their work 
+without the photographer having to host and manage their own site. The site 
+will allow users to sign-up and upload a gallery of images that other users 
+can view, and purchse. Users are able to leave a comment about any images that 
+they purchase.
 
-Welcome seanjcarley,
+## UX
+AstroPrint.com is intended to provide Astro-Photographers a platform to display 
+their work, and allow other users be able to buy the work. The site will also 
+allow the users to be able to leave a rating and comments about the sellers 
+work etc...
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
+### User Stories
+#### Unregistered User:
+- As an unregistered user, I would like to:
+    - Get information as to the purpose of the website
+    - View a selection of the available works that can be purchased
+    - Have the option to sign up to the website
+    - Be able to read a selection of comments in relation to purchases on the site
+    - See the pricing structure in relation to signing up as a seller
 
-## Gitpod Reminders
+#### Registered User (seller):
+- As a registered seller user, I would like to:
+    - Be able to log in to my account
+    - Be able to update my account details
+    - See the list of works that I have made available on the site
+    - See the number of views of each of my items
+    - See the number of sales of each of my items
+    - Be able to upload new items
+    - Be able to remove items that are no longer for sale
+    - Be able to set/modify the selling price
+    - Be able to review my subscription status
+    - Be able to cancel my account
+    - See a list of purchases (including customer data) to be processed
+    - Modify purchases to show as outstanding or completed
+    - Have the same functionality as a customer to search, view, and purchase from other sellers on the site.
+#### Registered User (buyer):
+- As a registered seller user, I would like to:
+    - Be able to log in to my account
+    - Be able to update my account details
+    - Be able to see my purchase history
+    - Be able to see items that I have marked
+    - Be able to see my current shopping basket
+    - Be able to search for images
+    - Be able to bookmark images, or sellers for future reference
+#### Admin User:
+- As an admin user, I want to be able to:
+    - Log in to the site as a Admin user
+    - Be able to view all the images available
+    - Be able to remove any images
+    - Be able to review comments left by customers
+    - Be able to remove comments left by customers
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Features
 
-`python3 -m http.server`
+## Technology Used
+1. HTML - Used to define the structure of webpages
+1. CSS - Used to style web pages
+1. Bootstrap - Framework to simplify webpage design
+1. Fancybox - A JavaScript lightbox library for presenting various types of 
+media. Responsive, touch-enabled and customizable.
+1. JavaScript - A lightweight, interpreted, or just-in-time compiled 
+programming language
+1. JQuery - A fast, small, and feature-rich JavaScript library
+1. Python - A programming language that lets you work more quickly 
+and integrate your systems more effectively
+1. Django - High-level Python Web framework that encourages rapid development 
+and clean, pragmatic design
 
-A blue button should appear to click: *Make Public*,
+## Testing
 
-Another blue button should appear to click: *Open Browser*.
+## Deployment
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A blue button should appear to click: *Make Public*,
-
-Another blue button should appear to click: *Open Browser*.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the backend lessons.
-
-## Updates Since The Instructional Video
-
-We continually tweak and adjust this template to help give you the best experience. Here are the updates since the original video was made:
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
---------
-
-Happy coding!
+## Credits
