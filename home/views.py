@@ -3,5 +3,6 @@ from django.shortcuts import render
 # Create your views here.
 
 
-def get_home(request):
-    return render(request, 'home/home.html')
+def index(request):
+    """ view to return index.html"""
+    return render(request, 'home/index.html')
