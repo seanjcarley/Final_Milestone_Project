@@ -1,0 +1,21 @@
+html {
+    height: 100%;
+    background: url('/media/Test1.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+body {
+
+}
+
+.btn-search {
+    background-color: purple;
+    color: snow;
+    border: snow;
+}
+
+.search-input {
+    background-color: snow;
+    color: purple;
+    border: snow;
+}
