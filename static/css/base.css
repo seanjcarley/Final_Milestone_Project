@@ -1,21 +1,52 @@
 html {
     height: 100%;
-    background: url('/media/Test1.jpg') no-repeat center center fixed;
-    background-size: cover;
 }
 
 body {
+    background-color: #F0EDEE;
+}
 
+header {
+    background: url('/media/Test1.jpg') no-repeat center;
+    background-size: cover;
+    height: 15vh;
+}
+
+.bg-prp {
+    background-color: #2F003D;
+}
+.border-search {
+    background-color: #F0EDEE;
+    color: #2F003D;
+    border: #2F003D;
 }
 
 .btn-search {
-    background-color: purple;
-    color: snow;
-    border: snow;
+    background-color: #2F003D;
+    color: #F0EDEE;
+    border: #2F003D;
 }
 
-.search-input {
-    background-color: snow;
-    color: purple;
-    border: snow;
+.btn-search:hover {
+    background-color: #7D6F86;
+    color: #2F003D;
+    border: #F0EDEE;
+}
+
+.dropdown-item {
+    background-color: #2F003D;
+    color: #F0EDEE;
+}
+
+.dropdown-item:hover {
+    background-color: #7D6F86;
+    color: #2F003D;
+}
+
+.logo-font {
+    color: #F0EDEE;
+}
+
+.text-light {
+    color: #F0EDEE;
 }
