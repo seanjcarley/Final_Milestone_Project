@@ -17,7 +17,7 @@ class Image(models.Model):
         'Image_Data', to_field='id', on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
-        return self.id
+        return str(self.id)
 
 
 class Image_Data(models.Model):
@@ -34,6 +34,5 @@ class Image_Data(models.Model):
     country = models.CharField(max_length=50, null=True, blank=True)
     city = models.CharField(max_length=50, null=True, blank=True)
 
-    # def __str__(self):
-    #     # print(self.img_title)
-    #     return self.id
+    def __str__(self):
+        return str(self.id)

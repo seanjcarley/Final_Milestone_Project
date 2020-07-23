@@ -17,14 +17,14 @@
 		"pk": 2,
 		"model": "images.image_data",
 		"fields": {
-			"make": null,
-			"model": null,
+			"make": "other",
+			"model": "other",
 			"focal_length": 0.0,
-			"aperture": null,
+			"aperture": "not provided",
 			"shutter_speed_sec": 0.0,
 			"iso": 0.0,
 			"country": "Ukrane",
-			"city": null
+			"city": "not provided"
 		}
 	},
 	{
@@ -34,7 +34,7 @@
 			"make": "Sony" ,
 			"model": "ILCE-7RM2",
 			"focal_length": 0,
-			"aperture": null,
+			"aperture": "not provided",
 			"shutter_speed_sec": 10.0,
 			"iso": 800.0,
 			"country": "US",
@@ -59,14 +59,14 @@
 		"pk": 5,
 		"model": "images.image_data",
 		"fields": {
-			"make": null,
-			"model": null,
+			"make": "other",
+			"model": "other",
 			"focal_length": 0.0,
-			"aperture": null,
+			"aperture": "not provided",
 			"shutter_speed_sec": 0.0,
 			"iso": 0.0,
-			"country": null,
-			"city": null
+			"country": "not provided",
+			"city": "not provided"
 		}
 	},
 	{
@@ -101,10 +101,10 @@
 		"pk": 8,
 		"model": "images.image_data",
 		"fields": {
-			"make": null,
-			"model": null,
+			"make": "other",
+			"model": "other",
 			"focal_length": 0.0,
-			"aperture": null,
+			"aperture": "not provided",
 			"shutter_speed_sec": 0.0,
 			"iso": 0.0,
 			"country": "US",
@@ -135,8 +135,8 @@
 			"aperture": "f/2.8",
 			"shutter_speed_sec": 30.0,
 			"iso": 800.0,
-			"country": null,
-			"city": null
+			"country": "not provided",
+			"city": "not provided"
 		}
 	}
 ]
