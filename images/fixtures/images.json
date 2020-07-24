@@ -4,6 +4,7 @@
 		"model": "images.image",
 		"fields": {
 			"image": "v2osk-G3EDWxWJXpI-unsplash.jpg",
+            "tmnl_img": "tmnl-v2osk-G3EDWxWJXpI-unsplash.jpg",
 			"img_title": "Malham Cove",
 			"img_taken": "2017-01-05",
 			"base_price": 5.00,
@@ -19,6 +20,7 @@
 		"model": "images.image",
 		"fields": {
 			"image": "maxim-fiyavchuk-zPKLNg6bqhE-unsplash.jpg",
+            "tmnl_img": "tmnl-maxim-fiyavchuk-zPKLNg6bqhE-unsplash.jpg",
 			"img_title": "Milkyway Above",
 			"img_taken": "2018-03-04",
 			"base_price": 5.00,
@@ -34,6 +36,7 @@
 		"model": "images.image",
 		"fields": {
 			"image": "clint-mckoy-ZoR6x0qTkXk-unsplash.jpg",
+            "tmnl_img": "tmnl-clint-mckoy-ZoR6x0qTkXk-unsplash.jpg",
 			"img_title": "Wondering Skies",
 			"img_taken": "2018-07-21",
 			"base_price": 5.00,
@@ -49,6 +52,7 @@
 		"model": "images.image",
 		"fields": {
 			"image": "emily-goodhart-24sz8ynEsn8-unsplash.jpg",
+            "tmnl_img": "tmnl-emily-goodhart-24sz8ynEsn8-unsplash.jpg",
 			"img_title": "Family Farm",
 			"img_taken": "2018-04-18",
 			"base_price": 5.00,
@@ -64,6 +68,7 @@
 		"model": "images.image",
 		"fields": {
 			"image": "quentin-kemmel-yoEMDhSV_kE-unsplash.jpg",
+            "tmnl_img": "tmnl-quentin-kemmel-yoEMDhSV_kE-unsplash.jpg",
 			"img_title": "Space Station",
 			"img_taken": "2018-08-08",
 			"base_price": 5.00,
@@ -79,6 +84,7 @@
 		"model": "images.image",
 		"fields": {
 			"image": "casey-horner-j0ZPSFuybvg-unsplash.jpg",
+            "tmnl_img": "tmnl-casey-horner-j0ZPSFuybvg-unsplash.jpg",
 			"img_title": "Falls Under Starlight",
 			"img_taken": "2017-08-12",
 			"base_price": 5.00,
@@ -94,6 +100,7 @@
 		"model": "images.image",
 		"fields": {
 			"image": "martin-adams-qriVlQKnqS8-unsplash.jpg",
+            "tmnl_img": "tmnl-martin-adams-qriVlQKnqS8-unsplash.jpg",
 			"img_title": "Blood Moon",
 			"img_taken": "2018-07-30",
 			"base_price": 5.00,
@@ -109,6 +116,7 @@
 		"model": "images.image",
 		"fields": {
 			"image": "alex-perez-JqBuBWkkMAs-unsplash.jpg",
+            "tmnl_img": "tmnl-alex-perez-JqBuBWkkMAs-unsplash.jpg",
 			"img_title": "Lost in the Stars",
 			"img_taken": "2018-02-12",
 			"base_price": 5.00,
@@ -124,6 +132,7 @@
 		"model": "images.image",
 		"fields": {
 			"image": "lucas-ludwig-fKACu7wq6U4-unsplash.jpg",
+            "tmnl_img": "tmnl-lucas-ludwig-fKACu7wq6U4-unsplash.jpg",
 			"img_title": "Mountian Nights",
 			"img_taken": "2018-06-01",
 			"base_price": 5.00,
@@ -139,6 +148,7 @@
 		"model": "images.image",
 		"fields": {
 			"image": "michal-janek-3NeiQ8HI6Uo-unsplash.jpg",
+            "tmnl_img": "tmnl-michal-janek-3NeiQ8HI6Uo-unsplash.jpg",
 			"img_title": "Million Stars",
 			"img_taken": "2016-12-30",
 			"base_price": 5.00,

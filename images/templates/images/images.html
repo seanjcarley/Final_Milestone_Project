@@ -1,8 +1,6 @@
-{% for i in images %}
-    {{ i }}
-    <div class="col-12 col-lg-6">
-        <a data-fancybox="gallery" href="{{ i.image.url }}">
-            <img src="{{ i.image.url }}">
-        </a>
-    </div>
-{% endfor %}
+{% extends "home/index.html" %}
+{% load static %}
+
+{% block homeimages %}
+    
+{% endblock %}

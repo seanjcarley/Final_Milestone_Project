@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 
 class Image(models.Model):
     image = models.ImageField(null=True, blank=True)
+    tmnl_img = models.ImageField(null=True, blank=True)
     img_title = models.CharField(max_length=75, null=False, blank=False)
     img_taken = models.DateField()
     base_price = models.DecimalField(max_digits=6, decimal_places=2)

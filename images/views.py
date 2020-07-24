@@ -14,3 +14,15 @@ def all_images(request):
     }
 
     return render(request, 'images/images.html', context)
+
+
+def top_10_images(request):
+    """ view to show all images """
+    images = Image.objects.order_by("-img_rating")[:5]
+    print(images)
+
+    context = {
+        'images': images,
+    }
+
+    return render(request, 'images/images.html', context)
