@@ -3,29 +3,32 @@
 
 {% block page_header %}{% endblock %}
 
+{% block view_all %}
+    {% include 'includes/view_all.html' %}
+{% endblock %}
+
 {% block content %}
     <div class="row m-0">
         <div class="col-12 col-lg-6">
-            <h2>What do you want to do?</h2>
+            <h2 class="text-center">What do you want to do?</h2>
             <div class="row">
-                <div class="col">
+                <div class="col-10 offset-1">
                     <h3>Want to sell?</h3>
                     <p>Sign up as a seller, and use this site as you personal store. 
                     Set your own prices, manage customer interactions.......</p>
                 </div>
             </div>
             <div class="row">
-                <div class="col">
+                <div class="col-10 offset-1">
                     <h3>Want to buy?</h3>
-                    <p>Sign up as a standard user, and  and use this site as you personal store. 
-                    Set your own prices, manage customer interactions.......</p>
+                    <p>Search through all the images on the site, pick the 
+                    ones you want. Then use our secure checkout to place your 
+                    order. Sign up as a standard user, and</p>
                 </div>
             </div>
         </div>
-        <div class="col-12 col-lg-6">
-            <div class="row">
-                <h2>Top 5 Images</h2>
-            </div>
+        <div class="col-10 offset-1 col-lg-4 offset-lg-1">
+                <h2 class="text-center">Top 5 Images</h2>
             <div class="row">
                 <div class="card-columns">              
                     {% for i in images %}

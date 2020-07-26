@@ -1,6 +1,14 @@
 {% extends "home/index.html" %}
 {% load static %}
 
+{% block sort %}
+    {% include 'includes/sort-dropdown.html' %}
+{% endblock %}
+
+{% block view_all %}
+    {% include 'includes/view_all.html' %}
+{% endblock %}
+
 {% block content %}
     <div class="overlay"></div>
     <div class="container-fluid">

@@ -8,9 +8,11 @@ from .models import Image, Image_Data
 
 def all_images(request):
     """ view to show all images """
+
     images = Image.objects.all()
     query = None
-    # sort = None
+    # sort_name = None
+    # sort_dir = None
 
     if request.GET:
         if 'q' in request.GET:
@@ -19,7 +21,12 @@ def all_images(request):
                 messages.error(request, "Please enter search details")
                 return redirect(reverse('images'))
 
-        queries = Q(img_title__icontains=query) | Q(user_id__icontains=query)
+        queries = Q(img_title__icontains=query) \
+            | Q(user_id__username__icontains=query) \
+            | Q(img_data_id__country__icontains=query) \
+            | Q(img_data_id__city__icontains=query) \
+            | Q(img_data_id__model__icontains=query) \
+            | Q(img_data_id__make__icontains=query)
         images = images.filter(queries)
 
     context = {
