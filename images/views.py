@@ -21,13 +21,15 @@ def all_images(request):
                 messages.error(request, "Please enter search details")
                 return redirect(reverse('images'))
 
-        queries = Q(img_title__icontains=query) \
-            | Q(user_id__username__icontains=query) \
-            | Q(img_data_id__country__icontains=query) \
-            | Q(img_data_id__city__icontains=query) \
-            | Q(img_data_id__model__icontains=query) \
-            | Q(img_data_id__make__icontains=query)
-        images = images.filter(queries)
+            queries = Q(img_title__icontains=query) \
+                | Q(user_id__username__icontains=query) \
+                | Q(img_data_id__country__icontains=query) \
+                | Q(img_data_id__city__icontains=query) \
+                | Q(img_data_id__model__icontains=query) \
+                | Q(img_data_id__make__icontains=query)
+            images = images.filter(queries)
+        else:
+            images = Image.objects.filter(user_id)
 
     context = {
         'images': images,
@@ -40,10 +42,26 @@ def all_images(request):
 def top_10_images(request):
     """ view to show all images """
     images = Image.objects.order_by("-img_rating")[:5]
-    print(images)
+    # print(images)
 
     context = {
         'images': images,
     }
 
     return render(request, 'images/images.html', context)
+
+
+def user_images(request, user_id):
+    """ view to show all images from a single user """
+    images = Image.objects.all()
+    query = user_id
+
+    queries = Q(user_id__username__icontains=query)
+    
+    images = images.filter(queries)
+
+    context = {
+        'images': images,
+    }
+
+    return render(request, 'images/user_images.html', context)

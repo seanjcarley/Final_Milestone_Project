@@ -12,6 +12,7 @@
 {% block content %}
     <div class="overlay"></div>
     <div class="container-fluid">
+        
         <div class="row">
             <div class="image-container col-10 offset-1">
                 <div class="row">
@@ -27,9 +28,7 @@
                                             <th>Title: {{ i.img_title }}</th>
                                         </tr>
                                         <tr>
-                                            <td>Taken by: 
-                                                <a href="{% url 'user_images' i.user_id %}" class="">{{ i.user_id }}</a>
-                                            </td>
+                                            <td>Taken by: {{ i.user_id }}</td>
                                         </tr>
                                         <tr>
                                             <td>Purchased: {{ i.vol_sold }}</td>
