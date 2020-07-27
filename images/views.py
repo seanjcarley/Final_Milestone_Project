@@ -28,8 +28,6 @@ def all_images(request):
                 | Q(img_data_id__model__icontains=query) \
                 | Q(img_data_id__make__icontains=query)
             images = images.filter(queries)
-        else:
-            images = Image.objects.filter(user_id)
 
     context = {
         'images': images,
@@ -56,12 +54,12 @@ def user_images(request, user_id):
     images = Image.objects.all()
     query = user_id
 
-    queries = Q(user_id__username__icontains=query)
-    
+    queries = Q(user_id__username=query)
     images = images.filter(queries)
 
     context = {
         'images': images,
+        'user_id': user_id,
     }
 
     return render(request, 'images/user_images.html', context)

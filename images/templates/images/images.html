@@ -15,11 +15,28 @@
         <div class="row">
             <div class="image-container col-10 offset-1">
                 <div class="row">
+                    <div class="col-12">
+                        {% if search_term %}
+                            <h2>Search Results...</h2>
+                            {% if images|length > 1 %}
+                                <h5>{{ images|length }} images found for Search query : &lsquo;{{ search_term }}&rsquo;</h5>
+                            {% else %}
+                                <h5>Only {{ images|length }} image found for Search query : &lsquo;{{ search_term }}&rsquo;</h5>
+                            {% endif %} 
+                        {% else %} 
+                            <h2>All Images</h2>
+                            {% if images|length > 1 %}  
+                                <h5>{{ images|length }} images found</h5>
+                            {% else %}
+                                <h5>Only {{ images|length }} image found </h5>
+                            {% endif %}        
+                        {% endif %}
+                    </div>
                     {% for i in images %}
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                             <div class="card mx-auto my-auto" style="width: 15rem; height: 24rem;">
                                 <a class="mx-auto" data-fancybox="gallery" href="{{ i.image.url }}">
-                                    <img class="img-fluid mt-3" src="{{ i.tmnl_img.url }}">
+                                    <img class="img-fluid mt-3" src="{{ i.tmnl_img.url }}" width="160" height="106">
                                 </a>
                                 <div class="card-body">
                                     <table>
@@ -36,9 +53,9 @@
                                         </tr>
                                     </table>
                                 </div>
-                                <!-- <div class="card-footer">
-                                    <button>Purchase</button>
-                                </div> -->
+                                <div class="card-footer">
+                                    <a class="btn" href=""></a>
+                                </div>
                             </div>
                         </div>
                     {% endfor %}
