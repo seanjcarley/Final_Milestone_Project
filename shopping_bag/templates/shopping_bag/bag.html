@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <hr>
+                <h2>Shopping Bag</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {% if bag_images %}
+                    <div class="d-block">
+                        <div class="row">
+                            <div class="col">
+                                {% include 'shopping_bag/bag_total.html' %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                {% include 'shopping_bag/bag_buttons.html' %}
+                            </div>
+                        </div>
+                        {% for image in bag_images %}
+                            <div class="row">
+                                <div class="col-12">
+                                    {% include 'bag_image.html' %}
+                                </div>
+                                <!-- <div class="col-12">
+                                    {% include 'desc' %}
+                                </div>
+                                <div class="col-12">
+                                    {% include 'price' %}
+                                </div> -->
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <p>You have not selected anything.</p>                    
+                    <a href="{% url 'all_images' %}" class="btn">
+                        <span class="">
+                            <i class="fas fa-binoculars"></i>
+                        </span>
+                        <span>Keep Looking.</span>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
