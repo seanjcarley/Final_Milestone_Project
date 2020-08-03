@@ -77,6 +77,7 @@ class OrderItem(models.Model):
         blank=False,
         editable=False
     )
+
     def save(self, *args, **kwargs):
         pass
 
