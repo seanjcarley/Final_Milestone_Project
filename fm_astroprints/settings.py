@@ -45,8 +45,9 @@ INSTALLED_APPS = [
     # user created apps
     'home',
     'images',
-    # 'user_profiles',
+    'user_profile',
     'shopping_bag',
+    'checkout',
     # other
     'crispy_forms',
 ]
