@@ -34,7 +34,7 @@
                     </div>
                     {% for i in images %}
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="card mx-auto my-auto" style="width: 15rem; height: 24rem;">
+                            <div class="card mx-auto my-auto" style="width: 15rem; height: 21rem;">
                                 <a class="mx-auto" data-fancybox="gallery" href="{{ i.image.url }}">
                                     <img class="img-fluid mt-3" src="{{ i.tmnl_img.url }}" width="160" height="106">
                                 </a>
@@ -48,20 +48,30 @@
                                                 <a href="{% url 'user_images' i.user_id %}" class="">{{ i.user_id }}</a>
                                             </td>
                                         </tr>
-                                        <!-- <tr>
-                                            <td>Purchased: {{ i.vol_sold }}</td>
-                                        </tr> -->
+                                        <tr>
+                                            <td>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                            </td>
+                                        </tr>
                                     </table>
                                 </div>
                                 <div class="card-footer">
                                     <form class="form" action="{% url 'add_to_bag' i.id %}" method="POST">
                                         {% csrf_token %}
                                         <div class="form-row">
-                                            <input class="form-control qty_input" type="number"
+                                            <div class="col-6 form-col">
+                                                <input class="form-control qty_input" type="number"
                                                 name="quantity" value="1" min="1" max="99"
                                                 data-item_id="{{ i.id }}"
                                                 id="id_qty_{{ i.id }}">
-                                            <input type="submit" class="btn" value="Add to Bag">
+                                            </div>
+                                            <div class="col-6 form-col">
+                                                <input type="submit" class="btn" value="Add to Bag">
+                                            </div>
                                         </div>
                                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                     </form>

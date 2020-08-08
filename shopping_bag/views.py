@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, HttpResponse, reverse
 from django.contrib import messages
 
 from images.models import Image
@@ -29,3 +29,22 @@ def add_to_bag(request, image_id):
 
     request.session['bag'] = bag
     return redirect(redirect_url)
+
+
+def update_bag_quantities(request, image_id):
+    """ update the quantities in the bag """
+
+    image = get_object_or_404(Image, pk=image_id)
+    quantity = int(request.POST.get('quantity'))
+    bag = request.session.get('bag', {})
+
+    if quantity > 0:
+        bag[image_id] = quantity
+        messages.success(request, f'Updated {image.img_title} \
+            quantity to {bag[image_id]}')
+    else:
+        bag.pop(image_id)
+        messages.success(request, f'Removed {image.img_title} from your bag.')
+
+    request.session['bag'] = bag
+    return redirect(reverse('show_bag'))

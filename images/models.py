@@ -15,7 +15,9 @@ class Image(models.Model):
     vol_sold = models.IntegerField()
     img_rating = models.IntegerField(null=False, blank=False)
     img_data_id = models.ForeignKey(
-        'Image_Data', to_field='id', on_delete=models.SET_NULL, null=True, blank=True)
+        'Image_Data', to_field='id', on_delete=models.SET_NULL,
+        null=True, blank=True
+    )
 
     def __str__(self):
         return str(self.id)
