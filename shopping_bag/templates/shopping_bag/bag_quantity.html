@@ -1,9 +1,9 @@
-<form class="form update-form" method="POST" action="">
+<form class="form update-form" method="POST" action="{% url 'update_bag_quantities' image.image_id %}">
     {% csrf_token %}
     <div class="form-group">
         <div class="input-group">
             <div class="input-group-prepend">
-                <button class="dec-qty btn">
+                <button class="dec-qty btn" data-item_id="{{ image.image_id }}" id="dec-qty_{{ image.image_id }}">
                     <span>
                         <i class="fas fa-chevron-down fa-sm"></i>
                     </span>
@@ -14,7 +14,7 @@
                 data-item_id="{{ image.image_id }}" 
                 min="1" max="99" value="{{ image.quantity }}">
             <div class="input-group-append">
-                <button class="inc-qty btn">
+                <button class="inc-qty btn" data-item_id="{{ image.image_id }}" id="inc-qty_{{ image.image_id }}">
                     <span>
                         <i class="fas fa-chevron-up fa-sm"></i>
                     </span>
@@ -23,5 +23,5 @@
         </div>
     </div>
 </form>
-<a class="update text-info" href=""><small>Update</small></a> | 
+<a class="update text-info"><small>Update</small></a> | 
 <a class="delete text-danger" id="del_{{ image.image_id }}"><small>Remove</small></a>

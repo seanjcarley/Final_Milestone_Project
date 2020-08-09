@@ -21,6 +21,7 @@
                         <div class="row">
                             <div class="col">
                                 {% include 'shopping_bag/bag_total.html' %}
+                                
                             </div>
                         </div>
                         {% for image in bag_images %}
@@ -56,6 +57,9 @@
 
 {% block post_load_js %}
 {{ block.super }}
+
+    {% include 'images/includes/quantity_script.html' %}
+
     <script type="text/javascript">
         // update quantity
         $('.update').click(function(e) {
