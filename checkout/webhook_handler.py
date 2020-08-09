@@ -55,12 +55,67 @@ class StripeWH_Handler:
             if value == '':
                 shipping_details.address[field] = None
 
-        # save user info if save_info checked 
+        # save user info if save_info checked
         profile = None
         username = intent.metadata.username
         if username != 'AnonymousUser':
             profile = UserProfile.objects.get(user__username=username)
             if save_info:
-                phone_no =
-                street1 =
-                street2 = 
+                profile.default_phone_no = shipping_details.phone_no
+                profile.default_street1 = shipping_details.address.street1
+                profile.default_street2 = shipping_details.address.street2
+                profile.default_town_city = shipping_details.address.town_city
+                profile.default_county = shipping_details.address.county
+                profile.default_post_code = shipping_details.address.post_code
+                profile.default_country = shipping_details.address.country
+                profile.save()
+
+        order_exists = False
+        attempt = 1
+        while attempt <= 5:
+            try:
+                order = Order.objects.get(
+                    full_name__iexact=shipping_details.name,
+                    email__iexact=shipping_details.email,
+                    phone_no__iexact=shipping_details.phone_no,
+                    street1__iexact=shipping_details.address.street1,
+                    street2__iexact=shipping_details.address.street2,
+                    town_city__iexact=shipping_details.address.town_city,
+                    county__iexact=shipping_details.address.county,
+                    post_code__iexact=shipping_details.address.post_code,
+                    country__iexact=shipping_details.address.country,
+                    total=total,
+                    original_bag=bag,
+                    stripe_pid=pid,
+                )
+                order_exists = True
+                break
+            except Order.DoesNotExist:
+                attempt += 1
+                time.sleep(1)
+        
+        if order_exists:
+            self._send_conf_email(order)
+            return HttpResponse(
+                content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
+                status=200
+            )
+        else:
+            order = None
+            try:
+                order = Order.objects.get(
+                    full_name=shipping_details.name,
+                    user_profile=profile,
+                    email=shipping_details.email,
+                    phone_no=shipping_details.phone,
+                    street1=shipping_details.address.line1,
+                    street2=shipping_details.address.line2,
+                    town_city=shipping_details.address.town_city,
+                    county=shipping_details.address.county,
+                    post_code=shipping_details.address.postal_code,
+                    country=shipping_details.address.state,
+                    original_bag=bag,
+                    stripe_pid=pid,
+                )
+            except expression as identifier:
+                pass
