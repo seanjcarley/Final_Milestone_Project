@@ -183,4 +183,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Stripe
 STRIPE_PRV_KEY = os.getenv('STRIPE_PRV_KEY', '')
 STRIPE_PUB_KEY = os.getenv('STRIPE_PUB_KEY', '')
+STRIPE_WH_KEY = os.getenv('STRIPE_WH_KEY', '')
 STRIPE_CURRENCY = 'eur'
