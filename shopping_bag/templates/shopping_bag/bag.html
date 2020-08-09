@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load tools %}
 
 {% block page_header %}{% endblock %}
 
@@ -51,4 +52,27 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block post_load_js %}
+{{ block.super }}
+    <script type="text/javascript">
+        // update quantity
+        $('.update').click(function(e) {
+            var form = $(this).prev('.update-form');
+            form.submit();
+        });
+
+        // remove item
+        $('.delete').click(function(e) {
+            var csrfToken = "{{ csrf_token }}";
+            var imageId = $(this).attr('id').split('del_')[1];
+            var url = `/shopping_bag/remove/${imageId}/`;
+            var data = {'csrfmiddlewaretoken': csrfToken};
+
+            $.post(url, data).done(function() {
+                location.reload();
+            });
+        })
+    </script>
 {% endblock %}

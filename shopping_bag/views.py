@@ -11,12 +11,13 @@ def show_bag(request):
 
 
 def add_to_bag(request, image_id):
-    """ add an image to the shopping bag """
+    """ adjust image quantity in the shopping bag """
     image = get_object_or_404(Image, pk=image_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
 
     bag = request.session.get('bag', {})
+    print(bag, quantity)
 
     if image_id in list(bag.keys()):
         bag[image_id] += quantity
@@ -36,6 +37,7 @@ def update_bag_quantities(request, image_id):
 
     image = get_object_or_404(Image, pk=image_id)
     quantity = int(request.POST.get('quantity'))
+    print(quantity)
     bag = request.session.get('bag', {})
 
     if quantity > 0:
@@ -48,3 +50,22 @@ def update_bag_quantities(request, image_id):
 
     request.session['bag'] = bag
     return redirect(reverse('show_bag'))
+
+
+def remove_from_bag(request, image_id):
+    """ remove image from shopping bag """
+
+    try:
+        image = get_object_or_404(Image, pk=image_id)
+        bag = request.session.get('bag', {})
+
+        bag.pop(image_id)
+
+        messages.success(request, f'{image.img_title} removed from your bag')
+
+        request.session['bag'] = bag
+        return HttpResponse(status=200)
+
+    except Exception as e:
+        messages.error(request, f'Error removing image: {e}')
+        return HttpResponse(status=500)
