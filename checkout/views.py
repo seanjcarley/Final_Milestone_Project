@@ -9,6 +9,7 @@ from .models import Order, OrderItem
 from images.models import Image
 from user_profile.models import UserProfile
 from user_profile.forms import UserProfileForm
+from shopping_bag.contexts import bag_contents
 
 import stripe
 import json
@@ -30,6 +31,7 @@ def cache_data(request):
         messages.error(request, 'Your order was not processed. \
             Please try again later.')
         return HttpResponse(content=e, status=400)
+
 
 def checkout(request):
     stp_prv = settings.STRIPE_PRV_KEY
@@ -63,8 +65,7 @@ def checkout(request):
                     order_item = OrderItem(
                         order=order,
                         image=image,
-                        quantity = image_data
-                    )
+                        quantity=image_data,)
                     order_item.save()
                 except Image.DoesNotExist:
                     messages.error(request, (
@@ -75,24 +76,55 @@ def checkout(request):
                     return redirect(reverse('show_bag'))
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
-        else:
-            messages.error(request,
-                'There is an issue with the information you provided. Please check your \
-                form.'
+            return redirect(
+                reverse('checkout_success', args=[order.order_number])
             )
+        else:
+            messages.error(request, 'There is an issue with the information you \
+                provided. Please check your form.')
     else:
         bag = request.session.get('bag', {})
         if not bag:
             messages.error(request, 'Your shopping bag is empty!')
             return redirect(reverse('all_images'))
-        
+
         current_bag = bag_contents(request)
-        total = current_bag['grand_total']
+        total = current_bag['total']
         stripe_total = round(total * 100)
         stripe.api_key = stp_prv
         intent = stripe.PaymentIntent.create(
             amount=stripe_total,
-            currency=settings.STRIPE_CURRENCY
+            currency=settings.STRIPE_CURRENCY,
         )
 
+        if request.user.is_authenticated:
+            try:
+                profile = UserProfile.objects.get(user=request.user)
+                order_form = OrderForm(initial={
+                    'full_name': profile.user.get_full_name(),
+                    'email': profile.user.email,
+                    'phone_no': profile.default_phone_no,
+                    'street1': profile.default_street1,
+                    'street2': profile.default_street2,
+                    'town_city': profile.default_town_city,
+                    'county': profile.default_county,
+                    'post_code': profile.default_post_code,
+                    'country': profile.default_country,
+                })
+            except UserProfile.DoesNotExist:
+                order_form = OrderForm()
+        else:
+            order_form = OrderForm
+
+    if not stp_pub:
+        messages.warning(request, 'Stripe public key is missing!')
+
+    template = 'checkout/checkout.html'
+
+    context = {
+        'order_form': order_form,
+        'stripe_public_key': stp_pub,
+        'client_secret': intent.client_secret,
+    }
+
+    return render(request, template, context)
