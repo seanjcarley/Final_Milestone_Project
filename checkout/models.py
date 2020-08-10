@@ -1,7 +1,9 @@
 import uuid
+
 from django.db import models
 from django.db.models import Sum
 from django.conf import settings
+
 from user_profile.models import UserProfile
 from images.models import Image
 from django_countries.fields import CountryField
@@ -41,7 +43,11 @@ class Order(models.Model):
         return uuid.uuid4().hex.upper()
 
     def update_total(self):
-        pass
+        """ update totals when order item is added """
+        self.order_total = self.orderitems.aggregate(
+            Sum('orderitem_total'))['orderitem_total__sum'] or 0
+        self.grand_total = self.order_total
+        self.save()
 
     def save(self, *args, **kwargs):
         """ override save method to save order number if not already set """
