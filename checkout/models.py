@@ -28,18 +28,13 @@ class Order(models.Model):
     country = CountryField(blank_label='Country', null=False, blank=False)
     date = models.DateTimeField(auto_now_add=True)
     order_total = models.DecimalField(
-        max_digits=10,
-        decimal_places=2,
-        null=False,
-        default=0
-    )
+        max_digits=10, decimal_places=2, null=False, default=0)
     grand_total = models.DecimalField(
-        max_digits=10,
-        decimal_places=2,
-        null=False,
-        default=0
-    )
-    original_bag = models.TextField(null=False, blank=False, default='')
+        max_digits=10, decimal_places=2, null=False, default=0)
+    original_bag = models.TextField(
+        null=False, blank=False, default='')
+    stripe_pid = models.CharField(
+        max_length=254, null=False, blank=False, default='')
 
     def _generate_order_number(self):
         """ generate unique order no. using uuid """
@@ -49,7 +44,10 @@ class Order(models.Model):
         pass
 
     def save(self, *args, **kwargs):
-        pass
+        """ override save method to save order number if not already set """
+        if not self.order_number:
+            self.order_number = self._generate_order_number()
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.order_number
@@ -57,29 +55,19 @@ class Order(models.Model):
 
 class OrderItem(models.Model):
     order = models.ForeignKey(
-        Order,
-        null=False,
-        blank=False,
-        on_delete=models.CASCADE,
-        related_name='orderitems'
-    )
+        Order, null=False, blank=False, on_delete=models.CASCADE,
+        related_name='orderitems')
     image = models.ForeignKey(
-        Image,
-        null=False,
-        blank=False,
-        on_delete=models.CASCADE
-    )
+        Image, null=False, blank=False, on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, blank=False, default=0)
     orderitem_total = models.DecimalField(
-        max_digits=6,
-        decimal_places=2,
-        null=False,
-        blank=False,
-        editable=False
-    )
+        max_digits=6, decimal_places=2, null=False, blank=False,
+        editable=False)
 
     def save(self, *args, **kwargs):
-        pass
+        """ override save method to set item order total and order total """
+        self.orderitem_total = self.image.base_price * self.quantity
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f'Order Number: {self.order.order_number}'
