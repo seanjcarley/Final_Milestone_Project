@@ -31,7 +31,7 @@ class Order(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     order_total = models.DecimalField(
         max_digits=10, decimal_places=2, null=False, default=0)
-    grand_total = models.DecimalField(
+    total = models.DecimalField(
         max_digits=10, decimal_places=2, null=False, default=0)
     original_bag = models.TextField(
         null=False, blank=False, default='')

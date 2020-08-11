@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404, redirect, HttpResponse, reverse
+from django.shortcuts import render, get_object_or_404, \
+    redirect, HttpResponse, reverse
 from django.contrib import messages
 
 from images.models import Image
@@ -17,7 +18,6 @@ def add_to_bag(request, image_id):
     redirect_url = request.POST.get('redirect_url')
 
     bag = request.session.get('bag', {})
-    print(bag, quantity)
 
     if image_id in list(bag.keys()):
         bag[image_id] += quantity

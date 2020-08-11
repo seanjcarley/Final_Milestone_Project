@@ -39,6 +39,7 @@ def checkout(request):
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
+
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
@@ -50,6 +51,7 @@ def checkout(request):
             'post_code': request.POST['post_code'],
             'country': request.POST['country'],
         }
+
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save(commit=False)
