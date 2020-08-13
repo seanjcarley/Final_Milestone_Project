@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from django.db.models import Q
-from .models import Image, Image_Data
+from .models import Image
 
 # Create your views here.
 
@@ -40,7 +40,6 @@ def all_images(request):
 def top_10_images(request):
     """ view to show all images """
     images = Image.objects.order_by("-img_rating")[:5]
-    # print(images)
 
     context = {
         'images': images,
