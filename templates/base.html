@@ -18,7 +18,6 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
         <!-- Stripe -->
         <script src="https://js.stripe.com/v3/"></script>
-
     {% endblock %}
 
     {% block extra_css %}{% endblock %}
@@ -38,7 +37,7 @@
     <title>AstroPrint.com {% block extra_title %}{% endblock %}</title>
   </head>
   <body>
-    <header class="container-fluid fixeed-top">
+    <header class="container-fluid">
         <div id="topnav" class="row">
             <div class="col-12 col-lg-4">
                 <a href="{% url 'home' %}" class="nav-link main-logo-link">
@@ -91,11 +90,6 @@
     
     <section>
         {% block page_header %}{% endblock %}
-        <div class="row m-2">
-            <div class="col-lg-3">{% block sort %}{% endblock %}</div>
-                {% include 'includes/search-bar.html' %}
-            <div class="col-lg-3 justify-content-center">{% block view_all %}{% endblock %}</div>
-        </div>
         {% block content %}{% endblock %}
     </section>
 

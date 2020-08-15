@@ -1,0 +1,34 @@
+<div class="row m-2">
+    <div class="col-lg-3">
+        <div class="sort-select-wrapper w-50">
+            <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                <option value="rating_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Rating (low to high)</option>
+                <option value="rating_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Rating (high to low)</option>
+                <option value="price_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Price (low to high)</option>
+                <option value="price_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Price (high to low)</option>
+                <option value="title_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Title (A-Z)</option>
+                <option value="title_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Title (Z-A)</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <form method="GET" action="{% url 'all_images' %}">
+            <div class="input-group w-100">
+                <input class="form-control border border-search rounded-10" type="text" name="q" placeholder="Search...">
+                <div class="input-group-append">
+                    <button class="form-control btn btn-search border rounded-10" type="submit">
+                        <span class="icon">
+                            <i class="fas fa-search"></i>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-lg-3">
+        <button class="btn" type="submit">
+            <a href="{% url 'all_images' %}">View All...</a>
+        </button>
+    </div>
+</div>
