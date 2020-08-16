@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <hr>
+                <h2>Image Upload</h2>
+                <p>Fill in the details below to upload your image.</p>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <h5>Image Details</h5>
+                <form class="" action="" method="POST" id="">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button class="btn">Upload</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
