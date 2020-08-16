@@ -60,6 +60,7 @@ class StripeWH_Handler:
         # save user info if save_info checked
         profile = None
         username = intent.metadata.username
+        print(username)
         if username != 'AnonymousUser':
             profile = UserProfile.objects.get(user__username=username)
             if save_info:
@@ -76,6 +77,7 @@ class StripeWH_Handler:
         attempt = 1
         while attempt <= 5:
             try:
+                print(attempt)
                 order = Order.objects.get(
                     full_name__iexact=shipping_details.name,
                     email__iexact=billing_details.email,

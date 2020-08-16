@@ -1,15 +1,9 @@
 {% extends "home/index.html" %}
 {% load static %}
 
-{% block sort %}
-    {% include 'includes/sort-dropdown.html' %}
-{% endblock %}
-
-{% block view_all %}
-    {% include 'includes/view_all.html' %}
-{% endblock %}
 
 {% block content %}
+    {% include 'includes/search_filter.html' %}
     <div class="overlay"></div>
     <div class="container-fluid">
         
@@ -30,27 +24,7 @@
                 <div class="row">
                     {% for i in images %}
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="card mx-auto my-auto" style="width: 15rem; height: 24rem;">
-                                <a class="mx-auto" data-fancybox="gallery" href="{{ i.image.url }}">
-                                    <img class="img-fluid mt-3" src="{{ i.tmnl_img.url }}" width="160" height="106">
-                                </a>
-                                <div class="card-body">
-                                    <table>
-                                        <tr>
-                                            <th>Title: {{ i.img_title }}</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Taken by: {{ i.user_id }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Purchased: {{ i.vol_sold }}</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <!-- <div class="card-footer">
-                                    <button>Purchase</button>
-                                </div> -->
-                            </div>
+                            {% include 'images/includes/image_card.html' %}
                         </div>
                     {% endfor %}
                 </div>

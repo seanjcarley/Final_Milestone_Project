@@ -43,6 +43,16 @@ header {
     color: #2F003D;
 }
 
+.keep-looking {
+    background-color: #2F003D;
+    color: #7D6F86;
+}
+
+.keep-looking:hover {
+    background-color: #7D6F86;
+    color: #2F003D;
+}
+
 .logo-font {
     color: #F0EDEE;
 }

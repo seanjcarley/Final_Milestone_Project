@@ -1,10 +1,12 @@
-<a href="{% url 'all_images' %}" class="btn">
-    <span class="icon">
-        <i class="fas fa-binoculars"></i>
-    </span>
-    <span class="text-uppercase">Keep Looking</span>
-</a>
-<a href="{% url 'checkout' %}" class="btn">
+<button>
+    <a href="{% url 'all_images' %}" class="btn keep-looking">
+        <span class="icon">
+            <i class="fas fa-binoculars"></i>
+        </span>
+        <span class="text-uppercase">Keep Looking</span>
+    </a>
+</button>
+<a href="{% url 'checkout' %}" class="btn btn-site">
     <span class="text-uppercase">Purchase</span>
     <span class="icon">
         <i class="fa fa-credit-card"></i>

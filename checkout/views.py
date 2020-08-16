@@ -53,6 +53,7 @@ def checkout(request):
         }
 
         order_form = OrderForm(form_data)
+        # print(order_form, order_form.is_valid())
         if order_form.is_valid():
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
@@ -154,6 +155,7 @@ def checkout_success(request, order_number):
                 'default_country': order.country
             }
             user_profile_form = UserProfileForm(profile_data, instance=profile)
+            # print(user_profile_form.is_valid())
             if user_profile_form.is_valid():
                 user_profile_form.save()
 

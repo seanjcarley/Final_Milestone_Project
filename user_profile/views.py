@@ -23,13 +23,13 @@ def profile(request):
     else:
         form = UserProfileForm(instance=profile)
 
-    # orders = profile.orders.all()
+    orders = profile.orders.all()
 
     template = 'user_profile/profile.html'
 
     context = {
         'form': form,
-        # 'orders': orders,
+        'orders': orders,
     }
 
     return render(request, template, context)

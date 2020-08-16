@@ -13,13 +13,7 @@
                 </td>
             </tr>
             <tr>
-                <td>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                </td>
+                <td id="rating"></td>
             </tr>
         </table>
     </div>
@@ -34,7 +28,7 @@
                     id="id_qty_{{ i.id }}">
                 </div>
                 <div class="col-6 form-col">
-                    <input type="submit" class="btn" value="Add to Bag">
+                    <input type="submit" class="btn btn-site" value="Add to Bag">
                 </div>
             </div>
             <input type="hidden" name="redirect_url" value="{{ request.path }}">

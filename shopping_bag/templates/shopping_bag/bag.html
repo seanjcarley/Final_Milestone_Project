@@ -42,13 +42,15 @@
                         </div>
                     </div>
                 {% else %}
-                    <p>You have not selected anything.</p>                    
-                    <a href="{% url 'all_images' %}" class="btn">
-                        <span class="">
-                            <i class="fas fa-binoculars"></i>
-                        </span>
-                        <span>Keep Looking.</span>
-                    </a>
+                    <p>You have not selected anything.</p> 
+                    <button>
+                        <a href="{% url 'all_images' %}" class="btn keep-looking">
+                            <span class="">
+                                <i class="fas fa-binoculars"></i>
+                            </span>
+                            <span>Keep Looking.</span>
+                        </a>
+                    </button>
                 {% endif %}
             </div>
         </div>
