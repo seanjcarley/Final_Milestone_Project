@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django_countries.fields import CountryField
 
 # Create your models here.
 
@@ -34,7 +35,7 @@ class Image_Data(models.Model):
     aperture = models.CharField(max_length=10, null=True, blank=True)
     shutter_speed_sec = models.IntegerField()
     iso = models.IntegerField()
-    country = models.CharField(max_length=50, null=True, blank=True)
+    country = CountryField(blank_label='Country', null=True, blank=True)
     city = models.CharField(max_length=50, null=True, blank=True)
 
     def __str__(self):
