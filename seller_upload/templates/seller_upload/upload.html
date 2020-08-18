@@ -7,7 +7,7 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col-12 col-lg-6">
                 <hr>
                 <h2>Image Upload</h2>
                 <p>Fill in the details below to upload your image.</p>
@@ -15,19 +15,37 @@
             </div>
         </div>
         <div class="row">
-            <div class="col">
-                <form class="" action="" method="POST" id="">
+            <div class="col-12 col-lg-6">
+                <form class="" action="{% url 'add_image' %}" method="POST" id="upload-form">
                     {% csrf_token %}
-                    <div class="row">
-                        <div class="col-12 col-md-6">
-                            <h5>Image Details</h5>
-                            {{ iform|crispy }}
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <h5>Camera Settingss</h5>
-                            {{ dform|crispy }}
-                        </div>
-                    </div>
+                    <fieldset>
+                        <legend>Image Details</legend>
+                        {{ iform.img_title | as_crispy_field }}
+                        {{ iform.img_taken | as_crispy_field }}
+                        {{ iform.base_price | as_crispy_field }}
+                    </fieldset>
+                    <fieldset>
+                        <legend>Select files to upload</legend>
+                        {{ iform.image | as_crispy_field }}
+                        {{ iform.tmnl_img | as_crispy_field }}
+                    </fieldset>
+                    <fieldset>
+                        <legend>Camera Used</legend>
+                        {{ dform.make | as_crispy_field }}
+                        {{ dform.model | as_crispy_field }}
+                    </fieldset>
+                    <fieldset>
+                        <legend>Settings Used</legend>
+                        {{ dform.focal_length | as_crispy_field }}
+                        {{ dform.aperture | as_crispy_field }}
+                        {{ dform.shutter_speed_sec | as_crispy_field }}
+                        {{ dform.iso | as_crispy_field }}
+                    </fieldset>
+                    <fieldset>
+                        <legend>Location</legend>
+                        {{ dform.city | as_crispy_field	}}
+                        {{ dform.country | as_crispy_field }}
+                    </fieldset>
                     <div class="row">
                         <div class="col">
                             <button class="btn">Upload</button>
