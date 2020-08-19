@@ -11,16 +11,13 @@ from user_profile.models import UserProfile
 def add_image(request):
     """ handle user adding image to site """
     if request.method == 'POST':
-        username = request.user
         iform_data = {
             'img_title': request.POST['img_title'],
             'img_taken': request.POST['img_taken'],
             'base_price': request.POST['base_price'],
             'image': request.POST['image'],
             'tmnl_img': request.POST['tmnl_img'],
-            'user_id': username,
         }
-
         dform_data = {
             'make': request.POST['make'],
             'model': request.POST['model'],
@@ -33,12 +30,18 @@ def add_image(request):
         }
 
         iform = AddSellerImage(iform_data)
-        print(iform)
         dform = AddSellerImageData(dform_data)
-        print(iform.is_valid())
-        if iform.is_valid():
-            image = iform.save()
-            return redirect(reverse('add_image_detail', args=[image.id, dform]))
+
+        if iform.is_valid() and dform.is_valid():
+            image = iform.save(commit=False)
+            data = dform.save()
+            profile = UserProfile.objects.get(user=request.user)
+            username = profile.user
+            image.user = username
+            image.user_id = username
+            image.img_data_id = data
+            image.save()
+            return redirect(reverse('image_detail', args=[image.id, data.id]))
         else:
             messages.error(request, 'Image not uploaded. Please check form.')
     else:
@@ -53,17 +56,9 @@ def add_image(request):
     return render(request, template, context)
 
 
-def add_image_detail(request, image_id, dform):
-    data = dform.save()
-    Image.objects.filter(pk=image_id).update(image_data_id=data.id)
-    messages.success(request, 'Image successfully added!')
-
-    return render(request, 'image_detail', image_id)
-
-
-def image_detail(request, image_id):
+def image_detail(request, image_id, data_id):
     image = get_object_or_404(Image, pk=image_id)
-    data = get_object_or_404(Image_Data, pk=image.img_data_id)
+    data = get_object_or_404(Image_Data, pk=data_id)
 
     context = {
         'image': image,

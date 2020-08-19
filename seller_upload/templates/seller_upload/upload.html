@@ -46,6 +46,9 @@
                         {{ dform.city | as_crispy_field	}}
                         {{ dform.country | as_crispy_field }}
                     </fieldset>
+                    <fieldset>
+                        <input type="hidden" value="{{ user }}" name="user_id">
+                    </fieldset>
                     <div class="row">
                         <div class="col">
                             <button class="btn">Upload</button>

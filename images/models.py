@@ -10,7 +10,7 @@ class Image(models.Model):
     img_title = models.CharField(max_length=75, null=False, blank=False)
     img_taken = models.DateField(null=True, blank=True)
     base_price = models.DecimalField(max_digits=6, decimal_places=2)
-    user_id = models.OneToOneField(User, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(User, to_field='id', on_delete=models.CASCADE)
     img_status = models.IntegerField(default=0)
     vol_sold = models.IntegerField(default=0)
     img_rating = models.IntegerField(null=False, blank=False, default=0)

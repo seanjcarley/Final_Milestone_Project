@@ -7,7 +7,7 @@ class AddSellerImage(forms.ModelForm):
         model = Image
         fields = (
             'img_title', 'img_taken', 'base_price',
-            'image', 'tmnl_img', 'user_id',)
+            'image', 'tmnl_img',)
 
     def __init__(self, *args, **kwargs):
         """ add placeholders, set/remove labels, and set autofocus """
@@ -19,7 +19,6 @@ class AddSellerImage(forms.ModelForm):
             'base_price': 'Price (€) to be charged for a 6in x 4in print',
             'image': 'Image preview file',
             'tmnl_img': 'Thumbnail image file',
-            'user_id': '',
         }
 
         self.fields['img_title'].widget.attrs['autofocus'] = True
@@ -31,10 +30,10 @@ class AddSellerImage(forms.ModelForm):
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
                 self.fields[field].label = False
-            elif field == 'image' and field == 'tmnl_img':
-                self.fields[field].label = placeholders[field]
+            elif field == 'user_id':
+                self.fields[field].widget.attrs['value'] = ''
             else:
-                pass
+                self.fields[field].label = placeholders[field]
             self.fields[field].widget.attrs['class'] = ''
 
 
