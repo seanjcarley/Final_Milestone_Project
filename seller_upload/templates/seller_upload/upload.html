@@ -16,7 +16,7 @@
         </div>
         <div class="row">
             <div class="col-12 col-lg-6">
-                <form class="" action="{% url 'add_image' %}" method="POST" id="upload-form">
+                <form enctype="multipart/form-data" class="" action="{% url 'add_image' %}" method="POST" id="upload-form">
                     {% csrf_token %}
                     <fieldset>
                         <legend>Image Details</legend>
@@ -26,7 +26,7 @@
                     </fieldset>
                     <fieldset>
                         <legend>Select files to upload</legend>
-                        {{ iform.image | as_crispy_field }}
+                        {{ iform.prev_img | as_crispy_field }}
                         {{ iform.tmnl_img | as_crispy_field }}
                     </fieldset>
                     <fieldset>

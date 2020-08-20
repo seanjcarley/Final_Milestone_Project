@@ -7,7 +7,7 @@ class AddSellerImage(forms.ModelForm):
         model = Image
         fields = (
             'img_title', 'img_taken', 'base_price',
-            'image', 'tmnl_img',)
+            'prev_img', 'tmnl_img',)
 
     def __init__(self, *args, **kwargs):
         """ add placeholders, set/remove labels, and set autofocus """
@@ -17,7 +17,7 @@ class AddSellerImage(forms.ModelForm):
             'img_title': 'Image title displayed on the site',
             'img_taken': 'Date the image was taken',
             'base_price': 'Price (€) to be charged for a 6in x 4in print',
-            'image': 'Image preview file',
+            'prev_img': 'Image preview file',
             'tmnl_img': 'Thumbnail image file',
         }
 

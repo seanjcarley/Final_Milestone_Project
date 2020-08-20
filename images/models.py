@@ -5,7 +5,7 @@ from django_countries.fields import CountryField
 
 # Create your models here.
 class Image(models.Model):
-    image = models.ImageField(null=True, blank=True)
+    prev_img = models.ImageField(null=True, blank=True)
     tmnl_img = models.ImageField(null=True, blank=True)
     img_title = models.CharField(max_length=75, null=False, blank=False)
     img_taken = models.DateField(null=True, blank=True)

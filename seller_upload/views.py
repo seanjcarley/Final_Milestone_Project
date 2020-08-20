@@ -15,8 +15,8 @@ def add_image(request):
             'img_title': request.POST['img_title'],
             'img_taken': request.POST['img_taken'],
             'base_price': request.POST['base_price'],
-            'image': request.POST['image'],
-            'tmnl_img': request.POST['tmnl_img'],
+            'prev_img': request.FILES['prev_img'],
+            'tmnl_img': request.FILES['tmnl_img'],
         }
         dform_data = {
             'make': request.POST['make'],
@@ -57,8 +57,9 @@ def add_image(request):
 
 
 def image_detail(request, image_id, data_id):
-    image = get_object_or_404(Image, pk=image_id)
-    data = get_object_or_404(Image_Data, pk=data_id)
+    image = Image.objects.get(pk=image_id)
+    data = Image_Data.objects.get(pk=data_id)
+    print(image)
 
     if request.user == image.user_id:
         template = 'seller_upload/image_detail.html'
