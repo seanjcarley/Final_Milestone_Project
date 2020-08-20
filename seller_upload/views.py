@@ -60,9 +60,14 @@ def image_detail(request, image_id, data_id):
     image = get_object_or_404(Image, pk=image_id)
     data = get_object_or_404(Image_Data, pk=data_id)
 
-    context = {
-        'image': image,
-        'data': data,
-    }
+    if request.user == image.user_id:
+        template = 'seller_upload/image_detail.html'
+        context = {
+            'image': image,
+            'data': data,
+        }
+    else:
+        template = 'seller_upload/image_detail.html'
+        context = {}
 
-    return render(request, 'seller_upload/image_detail.html', context)
+    return render(request, template, context)

@@ -28,7 +28,7 @@ work etc...
   - [ ] See the list of works that I have made available on the site
   - [ ] See the number of views of each of my items
   - [ ] See the number of sales of each of my items
-  - [ ] Be able to upload new items
+  - [x] Be able to upload new items
   - [ ] Be able to remove items that are no longer for sale
   - [ ] Be able to set/modify the selling price
   - [ ] Be able to review my subscription status

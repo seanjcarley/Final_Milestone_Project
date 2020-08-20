@@ -7,25 +7,110 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col-12 col-lg-6">
-                {{ image.img_title }}
-                {{ image.image }}
-                {{ image.tmnl_img }} 
-                {{ image.base_price }}
-                {{ image.img_rating }}
-                {{ image.vol_sold }}
-                {{ image.img_status }}
-                {{ image.img_taken }}
-                {{ image.user_id }}
-                {{ data.make }}
-                {{ data.model }}
-                {{ data.focal_length }}
-                {{ data.aperture }}
-                {{ data.shutter_speed_sec }}
-                {{ data.iso }}
-                {{ data.city }}
-                {{ data.country }}
+            <div class="col-12 col-lg-8 offset-lg-2">
+                {% if image %}
+                    <hr>
+                    <h2>{{ image.img_title }} Uploaded Successfully!</h2>
+                    <p>Your image has been added to your list of images. However, 
+                    it is not available to be viewed by potential customers just 
+                    yet. Click here to view your list and confirm that the details 
+                    you entered are correct. Once you are happy, You can then 
+                    approve the image for public viewing.</p>
+                    <hr>
+                {% else %}
+                    <hr>
+                    <h2>Error!</h2>
+                    <hr>
+                {% endif %}
             </div>
         </div>
+        {% if image %}
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <div class="card mx-auto my-auto" style="width: 15rem; height: 15rem;">
+                        <a class="mx-auto" data-fancybox="gallery" href="{{ image.image.url }}">
+                            <img class="img-fluid mt-3" src="{{ image.tmnl_img.url }}" width="160" height="106">
+                        </a>
+                        <div class="card-body">
+                            <table>
+                                <tr>
+                                    <th>Title: {{ image.img_title }}</th>
+                                </tr>
+                                <tr>
+                                    <td>Taken by: {{ image.user_id }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <table class="table">
+                        <tr>
+                            <th>The price for a 6in x 4in print: </th>
+                            <td>€{{ image.base_price }}</td>
+                        </tr>
+                        <tr>
+                            <th>The image was taken on: </th>
+                            <td>{{ image.img_taken }}</td>
+                        </tr>
+                        {% if data.make != 'other' or data.model != 'other' %}
+                        <tr>
+                            <th>Camera: </th>
+                            <td>
+                                {% if data.make != 'other' %}
+                                    {{ data.make }}{% if data.make != 'other' and data.model != 'other' %},{% endif %}
+                                {% endif %}
+                                {% if data.model != 'other' %}
+                                    {{ data.model }}
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endif %}
+                        {% if data.focal_length != 0 %}
+                            <tr>
+                                <th>Focal Length Setting: </th>
+                                <td>{{ data.focal_length }}</td>
+                            </tr>
+                        {% endif %}
+                        {% if data.aperture != 'not provided' %}
+                        <tr>
+                            <th>Aperture Setting: </th>
+                            <td>{{ data.aperture }}</td>
+                        </tr>
+                        {% endif %}
+                        {% if data.shutter_speed_sec != 0 %}
+                        <tr>
+                            <th>Shutter Speed Setting: </th>
+                            <td>{{ data.shutter_speed_sec }}</td>
+                        </tr>
+                        {% endif %}
+                        {% if data.iso != 0 %}
+                        <tr>
+                            <th>ISO Setting: </th>
+                            <td>{{ data.iso }}</td>
+                        </tr>
+                        {% endif %}
+                        {% if data.city != 'not provided' or data.country != 'not provided' %}
+                        <tr>
+                            <th>Location: </th>
+                            <td>
+                            {% if data.city != 'not provided' %}
+                                {{ data.city }}{% if data.city != 'not provided' and data.country != 'not provided' %},{% endif %}
+                            {% endif %}
+                            {% if data.country != 'not provided' %}
+                                {{ data.country }}
+                            {% endif %}
+                            </td>
+                        </tr>
+                        {% endif %}
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button>My Images</button>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
     </div>
 {% endblock %}
