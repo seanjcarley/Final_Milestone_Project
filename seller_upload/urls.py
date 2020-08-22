@@ -7,4 +7,5 @@ urlpatterns = [
         'image_detail/<image_id>/<data_id>',
         views.image_detail,
         name='image_detail'),
+    path('user_images/', views.all_user_images, name='all_user_images'),
 ]

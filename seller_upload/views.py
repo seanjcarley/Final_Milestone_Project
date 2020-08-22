@@ -1,9 +1,10 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import AddSellerImage, AddSellerImageData
 from images.models import Image, Image_Data
 from user_profile.models import UserProfile
+from django.db.models import Q
 
 
 # Create your views here.
@@ -11,13 +12,7 @@ from user_profile.models import UserProfile
 def add_image(request):
     """ handle user adding image to site """
     if request.method == 'POST':
-        iform_data = {
-            'img_title': request.POST['img_title'],
-            'img_taken': request.POST['img_taken'],
-            'base_price': request.POST['base_price'],
-            'prev_img': request.FILES['prev_img'],
-            'tmnl_img': request.FILES['tmnl_img'],
-        }
+
         dform_data = {
             'make': request.POST['make'],
             'model': request.POST['model'],
@@ -29,9 +24,8 @@ def add_image(request):
             'city': request.POST['city'],
         }
 
-        iform = AddSellerImage(iform_data)
+        iform = AddSellerImage(request.POST, request.FILES)
         dform = AddSellerImageData(dform_data)
-
         if iform.is_valid() and dform.is_valid():
             image = iform.save(commit=False)
             data = dform.save()
@@ -59,7 +53,6 @@ def add_image(request):
 def image_detail(request, image_id, data_id):
     image = Image.objects.get(pk=image_id)
     data = Image_Data.objects.get(pk=data_id)
-    print(image)
 
     if request.user == image.user_id:
         template = 'seller_upload/image_detail.html'
@@ -72,3 +65,16 @@ def image_detail(request, image_id, data_id):
         context = {}
 
     return render(request, template, context)
+
+
+def all_user_images(request):
+    """ view to show user's images """
+    uname = request.user
+    query = Q(user_id__username=uname)
+    images = Image.objects.filter(query)
+
+    context = {
+        'images': images,
+    }
+
+    return render(request, 'seller_upload/seller_show_images.html', context)

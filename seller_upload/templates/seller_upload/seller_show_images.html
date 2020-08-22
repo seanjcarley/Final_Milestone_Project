@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <hr>
+                <h2>Your Images</h2>
+                <p>Use this page to see information about your images</p>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                {% for image in images %}
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img class="img-fluid mt-3" src="{{ image.tmnl_img.url }}" width="160" height="106">
+                        </div>
+                        <div class="col-md-4">
+                            <table class="table">
+                                tr  
+                            </table>
+                        </div>
+                        <div class="col-md-4"></div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    
+        {{ image.user }}
+        <img class="img-fluid mt-3" src="{{ image.tmnl_img.url }}" width="160" height="106">
+        {{ image.img_data_id.city }}
+        {{ image.img_data_id.country }}
+    
+{% endblock %}
