@@ -7,31 +7,93 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-6 offset-lg-3">
                 <hr>
                 <h2>Your Images</h2>
-                <p>Use this page to see information about your images</p>
+                <p>
+                    Use this page to see information about your images, update 
+                    their details, add a new image, or delete the image from 
+                    the site altogether.
+                </p>
                 <hr>
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-lg-6">
-                {% for image in images %}
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img class="img-fluid mt-3" src="{{ image.tmnl_img.url }}" width="160" height="106">
-                        </div>
-                        <div class="col-md-4">
-                            <table class="table">
-                                tr  
-                            </table>
-                        </div>
-                        <div class="col-md-4"></div>
-                    </div>
-                {% endfor %}
+            <div class="col text-center">
+                <div class="submit-button text-right">
+                    <a href="{% url 'add_image' %}" class="btn">
+                        <span class="icon">
+                            <i class="far fa-image"></i>
+                        </span>
+                        <span>Add Image</span>
+                    </a>
+                </div>
+                <hr>
             </div>
         </div>
-    </div>
+        {% for image in images %}
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <img class="img-fluid mt-3" src="{{ image.tmnl_img.url }}" width="160" height="106">
+                </div>
+                <div class="col-12 col-md-4">
+                    <table class="table">
+                        <tr>
+                            <th>Title: </th>
+                            <td>{{ image.img_title }}</td>
+                        </tr>
+                        <tr>
+                            <th>Image Status: </th>
+                            {% if image.img_status == 0 %}
+                                <td class="text-danger"><strong>Not Active</strong></td>
+                            {% else %}
+                                <td class="text-success"><strong>Active</strong></td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            <th>Base Price: </th>
+                            <td>€{{ image.base_price }}</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div class="col-12 col-md-4">
+                    <table class="table">
+                        <tr>
+                            <th>Number Sold: </th>
+                            <td>{{ image.vol_sold }}</td>
+                        </tr>
+                        <tr>
+                            <th>Current Rating: </th>
+                            <td>{{ image.img_rating }}/5</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="submit-button text-right">
+                                    <a href="" class="btn">
+                                        <span class="icon">
+                                            <i class="fas fa-edit"></i>
+                                        </span>
+                                        <span>Edit Details</span>
+                                    </a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="submit-button text-right">
+                                    <a href="{% url 'delete_image' image.id %}" class="btn">
+                                        <span class="icon">
+                                            <i class="far fa-times-circle"></i>
+                                        </span>
+                                        <span>Delete Image</span>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <hr>
+        {% endfor %}
 
     
         {{ image.user }}

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import AddSellerImage, AddSellerImageData
@@ -51,6 +51,7 @@ def add_image(request):
 
 
 def image_detail(request, image_id, data_id):
+    """ Shows the details of an image just added """
     image = Image.objects.get(pk=image_id)
     data = Image_Data.objects.get(pk=data_id)
 
@@ -71,10 +72,63 @@ def all_user_images(request):
     """ view to show user's images """
     uname = request.user
     query = Q(user_id__username=uname)
-    images = Image.objects.filter(query)
+    images = Image.objects.filter(query).order_by('-img_rating', '-vol_sold')
 
     context = {
         'images': images,
     }
 
     return render(request, 'seller_upload/seller_show_images.html', context)
+
+
+@login_required
+def edit_image_details(request, image_id):
+    """ edit image options """
+    image = get_object_or_404(Image, pk=image_id)
+
+    if request.user == image.user_id:
+        if request.method == 'POST':
+            iform = AddSellerImage(request.POST, request.FILES, instance=image)
+            dform = AddSellerImageData(
+                request.POST, instance=image.img_data_id__id)
+            if iform.is_valid() and dform.is_valid():
+                image = iform.save()
+                data = dform.save()
+                messages.success(request, 'Details updated successfully!')
+                return redirect(
+                    reverse('image_detail', args=[image.id, data.id]))
+            else:
+                messages.error(
+                    request, 'Image not updated. Please check form.')
+        else:
+            iform = AddSellerImage(instance=image)
+            dform = AddSellerImageData(instance=image.img_data_id__id)
+            messages.info(request, f'Editing {image.img_title}')
+
+        template = ''
+        context = {
+            'iform': iform,
+            'dform': dform,
+            'image': image,
+        }
+
+        return render(request, template, context)
+    else:
+        messages.error(request, 'Tut tut tut! You cannot edit that.')
+        return redirect(reverse('home'))
+
+
+@login_required
+def delete_image(request, image_id):
+    """ delete an image """
+    image = get_object_or_404(Image, pk=image_id)
+    data = get_object_or_404(Image_Data, pk=image.img_data_id.id)
+
+    if request.user == image.user_id:
+        image.delete()
+        data.delete()
+        messages.success(request, 'Image deleted.')
+        return redirect(reverse('all_user_images'))
+    else:
+        messages.error(request, 'Tut tut tut! You cannot delete that.')
+        return redirect(reverse('home'))

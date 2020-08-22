@@ -8,4 +8,5 @@ urlpatterns = [
         views.image_detail,
         name='image_detail'),
     path('user_images/', views.all_user_images, name='all_user_images'),
+    path('delete_image/<image_id>', views.delete_image, name='delete_image'),
 ]
