@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <hr>
+                <h2>Edit Image details</h2>
+                <p>Update the details of the selected image.</p>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <form enctype="multipart/form-data" class="" action="{% url 'edit_image_details' image.id %}" method="POST" id="upload-form">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend>Image Details</legend>
+                        {{ iform.img_title | as_crispy_field }}
+                        {{ iform.img_taken | as_crispy_field }}
+                        {{ iform.base_price | as_crispy_field }}
+                        {{ iform.img_status | as_crispy_field }}
+                    </fieldset>
+                    <fieldset>
+                        <legend>Camera Used</legend>
+                        {{ dform.make | as_crispy_field }}
+                        {{ dform.model | as_crispy_field }}
+                    </fieldset>
+                    <fieldset>
+                        <legend>Settings Used</legend>
+                        {{ dform.focal_length | as_crispy_field }}
+                        {{ dform.aperture | as_crispy_field }}
+                        {{ dform.shutter_speed_sec | as_crispy_field }}
+                        {{ dform.iso | as_crispy_field }}
+                    </fieldset>
+                    <fieldset>
+                        <legend>Location</legend>
+                        {{ dform.city | as_crispy_field	}}
+                        {{ dform.country | as_crispy_field }}
+                    </fieldset>
+                    <fieldset>
+                        <input type="hidden" value="{{ user }}" name="user_id">
+                    </fieldset>
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn">Update</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

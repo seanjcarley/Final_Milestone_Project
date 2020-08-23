@@ -14,6 +14,7 @@ class UserProfileAdmin(admin.ModelAdmin):
         'default_county',
         'default_post_code',
         'default_country',
+        'seller',
     )
 
     ordering = ('id',)

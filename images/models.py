@@ -11,7 +11,7 @@ class Image(models.Model):
     img_taken = models.DateField(null=True, blank=True)
     base_price = models.DecimalField(max_digits=6, decimal_places=2)
     user_id = models.ForeignKey(User, to_field='id', on_delete=models.CASCADE)
-    img_status = models.IntegerField(default=0)
+    img_status = models.BooleanField(default=False)
     vol_sold = models.IntegerField(default=0)
     img_rating = models.IntegerField(null=False, blank=False, default=0)
     img_data_id = models.ForeignKey(

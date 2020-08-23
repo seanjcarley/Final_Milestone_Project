@@ -7,29 +7,42 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col-12 col-lg-6 offset-lg-3">
-                <hr>
-                <h2>Your Images</h2>
-                <p>
-                    Use this page to see information about your images, update 
-                    their details, add a new image, or delete the image from 
-                    the site altogether.
-                </p>
-                <hr>
-            </div>
+            {% if request.user.is_superuser %}
+                <div class="col-12 col-lg-6 offset-lg-3">
+                    <hr>
+                    <h2>Site Images</h2>
+                    <p>
+                        All Images currently on the site.
+                    </p>
+                    <hr>
+                </div>
+            {% else %}
+                <div class="col-12 col-lg-6 offset-lg-3">
+                    <hr>
+                    <h2>Your Images</h2>
+                    <p>
+                        Use this page to see information about your images, update 
+                        their details, add a new image, or delete the image from 
+                        the site altogether.
+                    </p>
+                    <hr>
+                </div>
+            {% endif %}
         </div>
         <div class="row">
-            <div class="col text-center">
-                <div class="submit-button text-right">
-                    <a href="{% url 'add_image' %}" class="btn">
-                        <span class="icon">
-                            <i class="far fa-image"></i>
-                        </span>
-                        <span>Add Image</span>
-                    </a>
+            {% if not request.user.is_superuser %}
+                <div class="col text-center">
+                    <div class="submit-button text-right">
+                        <a href="{% url 'add_image' %}" class="btn">
+                            <span class="icon">
+                                <i class="far fa-image"></i>
+                            </span>
+                            <span>Add Image</span>
+                        </a>
+                    </div>
+                    <hr>
                 </div>
-                <hr>
-            </div>
+            {% endif %}
         </div>
         {% for image in images %}
             <div class="row">
@@ -38,13 +51,19 @@
                 </div>
                 <div class="col-12 col-md-4">
                     <table class="table">
+                        {% if request.user.is_superuser %}
+                            <tr>
+                                <th>User ID: </th>
+                                <td>{{ image.user_id }}</td>
+                            </tr>
+                        {% endif %}
                         <tr>
                             <th>Title: </th>
                             <td>{{ image.img_title }}</td>
                         </tr>
                         <tr>
                             <th>Image Status: </th>
-                            {% if image.img_status == 0 %}
+                            {% if image.img_status == False %}
                                 <td class="text-danger"><strong>Not Active</strong></td>
                             {% else %}
                                 <td class="text-success"><strong>Active</strong></td>
@@ -70,7 +89,7 @@
                         <tr>
                             <td>
                                 <div class="submit-button text-right">
-                                    <a href="" class="btn">
+                                    <a href="{% url 'edit_image_details' image.id %}" class="btn">
                                         <span class="icon">
                                             <i class="fas fa-edit"></i>
                                         </span>

@@ -16,6 +16,7 @@ class UserProfile(models.Model):
     default_county = models.CharField(max_length=30, null=True, blank=True)
     default_post_code = models.CharField(max_length=10, null=True, blank=True)
     default_country = CountryField(blank_label='Country', null=True, blank=True)
+    seller = models.BooleanField(default=False)
 
     def __str__(self):
         return self.user.username

@@ -23,7 +23,7 @@ class AddSellerImage(forms.ModelForm):
 
         self.fields['img_title'].widget.attrs['autofocus'] = True
         for field in self.fields:
-            if field != 'image' and field != 'tmnl_img' and field != 'user_id':
+            if field != 'prev_img' and field != 'tmnl_img' and field != 'user_id':
                 if self.fields[field].required:
                     placeholder = f'{placeholders[field]} *'
                 else:
@@ -65,4 +65,32 @@ class AddSellerImageData(forms.ModelForm):
                 placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].label = False
+            self.fields[field].widget.attrs['class'] = ''
+
+
+class EditSellerImage(forms.ModelForm):
+    class Meta:
+        model = Image
+        fields = (
+            'img_title', 'img_taken', 'base_price', 'img_status')
+
+    def __init__(self, *args, **kwargs):
+        """ add placeholders, set/remove labels, and set autofocus """
+        super().__init__(*args, **kwargs)
+
+        placeholders = {
+            'img_title': 'Image title displayed on the site',
+            'img_taken': 'Date the image was taken',
+            'base_price': 'Price (€) to be charged for a 6in x 4in print',
+            'img_status': 'Set Image status',
+        }
+
+        self.fields['img_title'].widget.attrs['autofocus'] = True
+        for field in self.fields:
+            if self.fields[field].required:
+                placeholder = f'{placeholders[field]} *'
+            else:
+                placeholder = placeholders[field]
+            self.fields[field].widget.attrs['placeholder'] = placeholder
+            self.fields[field].label = placeholder
             self.fields[field].widget.attrs['class'] = ''

@@ -19,11 +19,12 @@ class UserProfileForm(forms.ModelForm):
             'default_town_city': 'Town or City',
             'default_county': 'County',
             'default_post_code': 'Post Code',
+            'seller': 'Sell your own Content?'
         }
 
         self.fields['default_phone_no'].widget.attrs['autofocus'] = True
         for field in self.fields:
-            if field != 'default_country':
+            if field != 'default_country' and field != 'seller':
                 if self.fields[field].required:
                     placeholder = f'{placeholders[field]} *'
                 else:
@@ -31,3 +32,5 @@ class UserProfileForm(forms.ModelForm):
                 self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = ''
             self.fields[field].label = False
+            if field == 'seller':
+                self.fields[field].label = placeholders[field]

@@ -12,14 +12,23 @@
                 <h2>My Profile</h2>
                 <p>Username: <strong>{{ user }}</strong></p>
                 <p>Email: <strong>{{ user.email }}</strong></p>
-                <button class="btn">Change Email</button>
+                {% if profile.seller == True %}
+                    <div class="submit-button text-right">
+                        <a href="{% url 'all_user_images' %}" class="btn">
+                            <span class="icon">
+                                <i class="far fa-images"></i>
+                            </span>
+                            <span>My Images</span>
+                        </a>
+                    </div>
+                {% endif %}
                 <hr>
             </div>
         </div>
         <div class="row">
             <div class="col-6">
                 <h5>Default Delivery Details</h5>
-                <form class="" action="" method="POST" id="">
+                <form class="" action="{% url 'profile' %}" method="POST" id="">
                     {% csrf_token %}
                     {{ form|crispy }}
                     <button class="btn">Update Information</button>
