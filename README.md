@@ -25,23 +25,23 @@ work etc...
 - As a registered seller user, I would like to:
   - [x] Be able to log in to my account
   - [x] Be able to update my account details
-  - [ ] See the list of works that I have made available on the site
+  - [x] See the list of works that I have made available on the site
   - [ ] See the number of views of each of my items
   - [ ] See the number of sales of each of my items
   - [x] Be able to upload new items
-  - [ ] Be able to remove items that are no longer for sale
-  - [ ] Be able to set/modify the selling price
+  - [x] Be able to remove items that are no longer for sale
+  - [x] Be able to set/modify the selling price
   - [ ] Be able to review my subscription status
   - [ ] Be able to cancel my account
   - [ ] See a list of purchases (including customer data) to be processed
   - [ ] Modify purchases to show as outstanding or completed
-  - [ ] Have the same functionality as a customer to search, view, and purchase from other sellers on the site.
+  - [x] Have the same functionality as a customer to search, view, and purchase from other sellers on the site.
 #### Registered User (buyer):
 - As a registered seller user, I would like to:
   - [x] Be able to log in to my account
   - [x] Be able to update my account details
-  - [ ] Be able to see my purchase history
-  - [ ] Be able to see items that I have marked
+  - [x] Be able to see my purchase history
+  - ~~[ ] Be able to see items that I have marked~~
   - [x] Be able to see my current shopping basket
   - [x] Be able to search for images
   - ~~[ ] Be able to bookmark images, or sellers for future reference~~
@@ -49,7 +49,7 @@ work etc...
 - As an admin user, I want to be able to:
   - [x] Log in to the site as a Admin user
   - [x] Be able to view all the images available
-  - [ ] Be able to remove any images
+  - [x] Be able to remove any images
   - [ ] Be able to review comments left by customers
   - [ ] Be able to remove comments left by customers
 
