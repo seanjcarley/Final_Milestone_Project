@@ -43,12 +43,12 @@ header {
     color: #2F003D;
 }
 
-.keep-looking {
+.btn-site {
     background-color: #2F003D;
     color: #7D6F86;
 }
 
-.keep-looking:hover {
+.btn-site:hover {
     background-color: #7D6F86;
     color: #2F003D;
 }

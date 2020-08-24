@@ -43,14 +43,12 @@
                     </div>
                 {% else %}
                     <p>You have not selected anything.</p> 
-                    <button>
-                        <a href="{% url 'all_images' %}" class="btn keep-looking">
-                            <span class="">
-                                <i class="fas fa-binoculars"></i>
-                            </span>
-                            <span>Keep Looking.</span>
-                        </a>
-                    </button>
+                    <a href="{% url 'all_images' %}" class="btn btn-site">
+                        <span class="">
+                            <i class="fas fa-binoculars"></i>
+                        </span>
+                        <span>Keep Looking.</span>
+                    </a>
                 {% endif %}
             </div>
         </div>

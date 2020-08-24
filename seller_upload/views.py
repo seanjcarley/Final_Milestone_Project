@@ -87,7 +87,7 @@ def edit_image_details(request, image_id):
     image = get_object_or_404(Image, pk=image_id)
     data = get_object_or_404(Image_Data, pk=image.img_data_id.id)
 
-    if request.user == image.user_id:
+    if request.user == image.user_id or request.user.is_superuser:
         if request.method == 'POST':
             iform = EditSellerImage(
                 request.POST, request.FILES, instance=image)
@@ -97,8 +97,12 @@ def edit_image_details(request, image_id):
                 image = iform.save()
                 data = dform.save()
                 messages.success(request, 'Details updated successfully!')
-                return redirect(
-                    reverse('all_user_images'))
+                if request.user == image.user_id:
+                    return redirect(
+                        reverse('all_user_images'))
+                else:
+                    return redirect(
+                        reverse('all_images_su'))
             else:
                 messages.error(
                     request, 'Image not updated. Please check form.')

@@ -70,6 +70,8 @@ and integrate your systems more effectively
 and clean, pragmatic design
 
 ## Testing
+Throughout the development of the project I used various techniques to test 
+and troubleshoot functionlality. 
 
 ## Deployment
 
