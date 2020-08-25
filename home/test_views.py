@@ -3,7 +3,6 @@ from django.test import TestCase
 # Create your tests here.
 
 
-class TestDjango(TestCase):
+class TestHome(TestCase):
 
-    def test_this_works1(self):
-        self.assertEqual(1, 1)
+    

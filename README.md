@@ -31,7 +31,6 @@ work etc...
   - [x] Be able to upload new items
   - [x] Be able to remove items that are no longer for sale
   - [x] Be able to set/modify the selling price
-  - [ ] Be able to review my subscription status
   - [ ] Be able to cancel my account
   - [ ] See a list of purchases (including customer data) to be processed
   - [ ] Modify purchases to show as outstanding or completed

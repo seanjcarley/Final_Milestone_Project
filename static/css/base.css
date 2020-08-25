@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background-color: #F0EDEE;
+    background-color: #7D6F86;
 }
 
 header {
@@ -16,7 +16,7 @@ header {
     background-color: #2F003D;
 }
 .border-search {
-    background-color: #F0EDEE;
+    background-color: #7D6F86;
     color: #2F003D;
     border: #2F003D;
 }
@@ -45,7 +45,7 @@ header {
 
 .btn-site {
     background-color: #2F003D;
-    color: #7D6F86;
+    color: #F0EDEE;
 }
 
 .btn-site:hover {
@@ -59,4 +59,10 @@ header {
 
 .text-light {
     color: #F0EDEE;
+}
+
+.card,
+.card-body {
+   background-color: #F0EDEE;
+   color: #2F003D;
 }

@@ -5,6 +5,7 @@ from django_countries.fields import CountryField
 
 # Create your models here.
 class Image(models.Model):
+    """ model holding image urls and other details """
     prev_img = models.ImageField(verbose_name='', upload_to='user_images/')
     tmnl_img = models.ImageField(verbose_name='', upload_to='user_images/')
     img_title = models.CharField(max_length=75, null=False, blank=False)
@@ -18,15 +19,17 @@ class Image(models.Model):
         'Image_Data', to_field='id', on_delete=models.SET_NULL,
         null=True, blank=True
     )
+    date_added = models.DateTimeField(auto_now_add=True)
+    last_updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return str(self.id)
 
 
 class Image_Data(models.Model):
-
+    """ model holding camera details for image """
     class Meta:
-        verbose_name_plural = 'Image_Data'
+        verbose_name_plural = 'Image Data'
 
     make = models.CharField(max_length=50, null=True, blank=True)
     model = models.CharField(max_length=50, null=True, blank=True)
@@ -36,6 +39,23 @@ class Image_Data(models.Model):
     iso = models.IntegerField(null=True, blank=True)
     country = CountryField(blank_label='Country', null=True, blank=True)
     city = models.CharField(max_length=50, null=True, blank=True)
+
+    def __str__(self):
+        return str(self.id)
+
+
+class ImageComments(models.Model):
+    """ model for comments about image """
+
+    class Meta:
+        verbose_name_plural = 'Image Comments'
+
+    comment = models.TextField(max_length=256, null=False, blank=False)
+    user_id = models.ForeignKey(
+        User, to_field='id', on_delete=models.CASCADE)
+    image_id = models.ForeignKey(
+        Image, to_field='id', on_delete=models.CASCADE)
+    date_added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return str(self.id)

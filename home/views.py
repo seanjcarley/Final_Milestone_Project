@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from images.models import Image, Image_Data
+from images.models import Image
 
 # Create your views here.
 
