@@ -9,7 +9,7 @@ from .models import Image
 def all_images(request):
     """ view to show all images """
 
-    images = Image.objects.all()
+    images = Image.objects.all().filter(img_status=True)
     query = None
     # sort_name = None
     # sort_dir = None
@@ -27,7 +27,7 @@ def all_images(request):
                 | Q(img_data_id__city__icontains=query) \
                 | Q(img_data_id__model__icontains=query) \
                 | Q(img_data_id__make__icontains=query)
-            images = images.filter(queries)
+            images = images.filter(queries).filter(img_status=True)
 
     context = {
         'images': images,

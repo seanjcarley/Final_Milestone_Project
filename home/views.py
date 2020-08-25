@@ -8,7 +8,9 @@ from images.models import Image, Image_Data
 def index(request):
     """ view to return index.html"""
 
-    images = Image.objects.order_by("-img_rating")[:5]
+    images = Image.objects.filter(
+        img_status=True).order_by(
+            "-img_rating", "-vol_sold")[:5]
 
     context = {
         'images': images,

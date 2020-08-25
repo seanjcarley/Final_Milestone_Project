@@ -27,7 +27,7 @@ work etc...
   - [x] Be able to update my account details
   - [x] See the list of works that I have made available on the site
   - [ ] See the number of views of each of my items
-  - [ ] See the number of sales of each of my items
+  - [x] See the number of sales of each of my items
   - [x] Be able to upload new items
   - [x] Be able to remove items that are no longer for sale
   - [x] Be able to set/modify the selling price
@@ -41,10 +41,8 @@ work etc...
   - [x] Be able to log in to my account
   - [x] Be able to update my account details
   - [x] Be able to see my purchase history
-  - ~~[ ] Be able to see items that I have marked~~
   - [x] Be able to see my current shopping basket
   - [x] Be able to search for images
-  - ~~[ ] Be able to bookmark images, or sellers for future reference~~
 #### Admin User:
 - As an admin user, I want to be able to:
   - [x] Log in to the site as a Admin user

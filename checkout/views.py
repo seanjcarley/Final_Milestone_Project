@@ -61,6 +61,7 @@ def checkout(request):
             order.original_bag = json.dumps(bag)
             order.save()
             for image_id, image_data in bag.items():
+                num = image_data
                 try:
                     image = Image.objects.get(id=image_id)
                     order_item = OrderItem(
@@ -68,9 +69,10 @@ def checkout(request):
                         image=image,
                         quantity=image_data,)
                     order_item.save()
+                    update_vol_sold(num, image.id)
                 except Image.DoesNotExist:
                     messages.error(request, (
-                        'An Image in you bag was not found! \
+                        'An Image in your bag was not found! \
                         Please start again.'
                     ))
                     order.delete()
@@ -172,3 +174,10 @@ def checkout_success(request, order_number):
     }
 
     return render(request, template, context)
+
+
+def update_vol_sold(num, image_id):
+    image = Image.objects.get(pk=image_id)
+    cur_vol = image.vol_sold
+    image.vol_sold = cur_vol + num
+    image.save()
