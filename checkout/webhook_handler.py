@@ -51,6 +51,8 @@ class StripeWH_Handler:
         shipping_details = intent.shipping
         total = round(intent.charges.data[0].amount / 100, 2)
         print(pid)
+        print(total)
+        print(bag)
 
         # omit empty fields
         for field, value in shipping_details.address.items():
@@ -60,7 +62,6 @@ class StripeWH_Handler:
         # save user info if save_info checked
         profile = None
         username = intent.metadata.username
-        print(username)
         if username != 'AnonymousUser':
             profile = UserProfile.objects.get(user__username=username)
             if save_info:
@@ -77,7 +78,6 @@ class StripeWH_Handler:
         attempt = 1
         while attempt <= 5:
             try:
-                print(attempt)
                 order = Order.objects.get(
                     full_name__iexact=shipping_details.name,
                     email__iexact=billing_details.email,
@@ -88,12 +88,10 @@ class StripeWH_Handler:
                     county__iexact=shipping_details.address.state,
                     post_code__iexact=shipping_details.address.postal_code,
                     country__iexact=shipping_details.address.country,
-                    total=total,
                     original_bag=bag,
                     stripe_pid=pid,
                 )
                 order_exists = True
-                print(order, "1")
                 break
             except Order.DoesNotExist:
                 attempt += 1
