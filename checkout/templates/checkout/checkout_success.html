@@ -12,14 +12,76 @@
                 <hr>
                 <h2>Thank you!</h2>
                 <hr>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
                 <p>
                     Your order information is below. A confirmation 
                     email will be sent to <strong>{{ order.email }}</strong>.
                 </p>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div>
+                    <div class="row">
+                        <div class="col">
+                            <h2>Order Info:</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <table class="table">
+                                <tr>
+                                    <th>Order Number:</th>
+                                    <td>{{ order.order_number }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Order Date:</th>
+                                    <td>{{ order.date }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Image(s) Ordered:</th>
+                                    <td>
+                                        {% for i in order.orderitems.all %}
+                                            <div class="row mb-1">
+                                                <div class="col-4">
+                                                    {{ i.image.img_title }}
+                                                </div>
+                                                <div class="col-4">
+                                                    <img src="{{ i.image.tmnl_img.url }}" alt="{{ i.image.img_title }}">
+                                                </div>
+                                                <div class="col-4">
+                                                    <p>{{ i.quantity }} x €{{ i.image.base_price }}</p>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Total:</th>
+                                    <td>€{{ order.order_total }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Address:</th>
+                                    <td>
+                                        {{ order.full_name }}<br/>
+                                        {{ order.street1 }}<br/>
+                                        {% if order.street2 %}
+                                            {{ order.street2 }}<br/>
+                                        {% endif %}
+                                        {{ order.town_city }}<br/>
+                                        {{ order.county }}<br/>
+                                        {{ order.post_code }}<br/>
+                                        {{ order.country }}<br/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Email:</th>
+                                    <td>{{ order.email }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
