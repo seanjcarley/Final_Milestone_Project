@@ -33,7 +33,7 @@
             {% if not request.user.is_superuser %}
                 <div class="col text-center">
                     <div class="submit-button text-right">
-                        <a href="{% url 'add_image' %}" class="btn">
+                        <a href="{% url 'add_image' %}" class="btn btn-site">
                             <span class="icon">
                                 <i class="far fa-image"></i>
                             </span>
@@ -89,7 +89,7 @@
                         <tr>
                             <td>
                                 <div class="submit-button text-right">
-                                    <a href="{% url 'edit_image_details' image.id %}" class="btn">
+                                    <a href="{% url 'edit_image_details' image.id %}" class="btn btn-site">
                                         <span class="icon">
                                             <i class="fas fa-edit"></i>
                                         </span>
@@ -99,7 +99,7 @@
                             </td>
                             <td>
                                 <div class="submit-button text-right">
-                                    <a href="{% url 'delete_image' image.id %}" class="btn">
+                                    <a href="{% url 'delete_image' image.id %}" class="btn btn-site">
                                         <span class="icon">
                                             <i class="far fa-times-circle"></i>
                                         </span>

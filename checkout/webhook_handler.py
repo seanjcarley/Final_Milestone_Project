@@ -49,10 +49,7 @@ class StripeWH_Handler:
 
         billing_details = intent.charges.data[0].billing_details
         shipping_details = intent.shipping
-        total = round(intent.charges.data[0].amount / 100, 2)
-        print(pid)
-        print(total)
-        print(bag)
+        order_total = round(intent.charges.data[0].amount / 100, 2)
 
         # omit empty fields
         for field, value in shipping_details.address.items():
