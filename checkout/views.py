@@ -181,3 +181,10 @@ def update_vol_sold(num, image_id):
     cur_vol = image.vol_sold
     image.vol_sold = cur_vol + num
     image.save()
+
+
+def update_img_rating(num, image_id):
+    image = Image.objects.get(pk=image_id)
+    cur_rating = image.img_rating
+    image.img_rating = cur_rating + num
+    image.save()

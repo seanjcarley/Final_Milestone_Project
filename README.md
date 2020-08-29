@@ -26,7 +26,7 @@ work etc...
   - [x] Be able to log in to my account
   - [x] Be able to update my account details
   - [x] See the list of works that I have made available on the site
-  - [ ] See the number of views of each of my items
+  - ~~[ ] See the number of views of each of my items~~
   - [x] See the number of sales of each of my items
   - [x] Be able to upload new items
   - [x] Be able to remove items that are no longer for sale
