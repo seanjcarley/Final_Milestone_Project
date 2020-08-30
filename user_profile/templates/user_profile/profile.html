@@ -12,15 +12,13 @@
                 <h2>My Profile</h2>
                 <p>Username: <strong>{{ user }}</strong></p>
                 <p>Email: <strong>{{ user.email }}</strong></p>
-                {% if profile.seller == True %}
-                    <div class="submit-button text-right">
-                        <a href="{% url 'all_user_images' %}" class="btn">
-                            <span class="icon">
-                                <i class="far fa-images"></i>
-                            </span>
-                            <span>My Images</span>
-                        </a>
-                    </div>
+                {% if seller == True %}
+                    <a href="{% url 'all_user_images' %}" class="btn btn-site">
+                        <span class="icon">
+                            <i class="far fa-images"></i>
+                        </span>
+                        <span>My Images</span>
+                    </a>
                 {% endif %}
                 <hr>
             </div>

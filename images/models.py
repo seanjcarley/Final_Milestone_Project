@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django_countries.fields import CountryField
 
 
+
 # Create your models here.
 class Image(models.Model):
     """ model holding image urls and other details """
@@ -39,23 +40,6 @@ class Image_Data(models.Model):
     iso = models.IntegerField(null=True, blank=True)
     country = CountryField(blank_label='Country', null=True, blank=True)
     city = models.CharField(max_length=50, null=True, blank=True)
-
-    def __str__(self):
-        return str(self.id)
-
-
-class ImageComments(models.Model):
-    """ model for comments about image """
-
-    class Meta:
-        verbose_name_plural = 'Image Comments'
-
-    comment = models.TextField(max_length=256, null=False, blank=False)
-    user_id = models.ForeignKey(
-        User, to_field='id', on_delete=models.CASCADE)
-    image_id = models.ForeignKey(
-        Image, to_field='id', on_delete=models.CASCADE)
-    date_added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return str(self.id)

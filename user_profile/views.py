@@ -26,11 +26,15 @@ def profile(request):
 
     orders = profile.orders.all()
 
+    seller = profile.seller
+    print(seller)
+
     template = 'user_profile/profile.html'
 
     context = {
         'form': form,
         'orders': orders,
+        'seller': seller,
         'on_profile_page': True,
     }
 

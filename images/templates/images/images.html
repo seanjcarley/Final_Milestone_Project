@@ -30,6 +30,9 @@
                                 <h5>Only {{ images|length }} image found </h5>
                             {% endif %}        
                         {% endif %}
+                        {% if current_sorting != "None" %}
+                            <h6>{{ current_sorting }}</h6>
+                        {% endif %}
                     </div>
                     {% for i in images %}
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">

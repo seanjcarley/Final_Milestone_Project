@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from django.db.models import Q
 from .models import Image
+from django.db.models.functions import Lower
 
 # Create your views here.
 
@@ -11,10 +12,22 @@ def all_images(request):
 
     images = Image.objects.all().filter(img_status=True)
     query = None
-    # sort_name = None
-    # sort_dir = None
+    sort = None
+    sort_dir = None
 
     if request.GET:
+        if 'sort' in request.GET:
+            sortKey = request.GET['sort']
+            sort = sortKey
+            if sortKey == 'img':
+                sortKey = 'lower_title'
+                images = images.annotate(lower_title=Lower('img_title'))
+            if 'direction' in request.GET:
+                sort_dir = request.GET['direction']
+                if sort_dir == 'desc':
+                    sortKey = f'-{sortKey}'
+            images = images.order_by(sortKey)
+
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -29,9 +42,28 @@ def all_images(request):
                 | Q(img_data_id__make__icontains=query)
             images = images.filter(queries).filter(img_status=True)
 
+    if sort == "img_title":
+        if sort_dir == 'asc':
+            current_sorting = 'Image Title A-Z'
+        else:
+            current_sorting = 'Image Title Z-A'
+    elif sort == "img_rating":
+        if sort_dir == 'asc':
+            current_sorting = 'Image Rating Low - High'
+        else:
+            current_sorting = 'Image Rating High - Low'
+    elif sort == "base_price":
+        if sort_dir == 'asc':
+            current_sorting = 'Image Price Low - High'
+        else:
+            current_sorting = 'Image Price High - Low'
+    else:
+        current_sorting = 'None_None'
+
     context = {
         'images': images,
         'search_term': query,
+        'current_sorting': current_sorting,
     }
 
     return render(request, 'images/images.html', context)
