@@ -1,5 +1,5 @@
 from django import forms
-from .models import Order
+from .models import Order, OrderItem
 
 
 class OrderForm(forms.ModelForm):
@@ -37,3 +37,21 @@ class OrderForm(forms.ModelForm):
                 self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = ''
             self.fields[field].label = False
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = OrderItem
+        fields = ('comment', 'rating')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        placeholders = {
+            'comment': 'Please leave your comment here (max 256 characters)',
+            'rating': 'How many stars?',
+        }
+
+        self.fields['comment'].widget.attrs['autofocus'] = True
+        self.fields['comment'].widget.attrs['placeholder'] = placeholders['comment']
+        self.fields['comment'].label = False
+        self.fields['rating'].label = placeholders['rating']

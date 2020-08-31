@@ -3,7 +3,7 @@ from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
 
-from .forms import OrderForm
+from .forms import OrderForm, CommentForm
 from .models import Order, OrderItem
 
 from images.models import Image
@@ -177,6 +177,7 @@ def checkout_success(request, order_number):
 
 
 def update_vol_sold(num, image_id):
+    """ update the vol_sold figure """
     image = Image.objects.get(pk=image_id)
     cur_vol = image.vol_sold
     image.vol_sold = cur_vol + num
@@ -184,7 +185,33 @@ def update_vol_sold(num, image_id):
 
 
 def update_img_rating(num, image_id):
-    image = Image.objects.get(pk=image_id)
-    cur_rating = image.img_rating
-    image.img_rating = cur_rating + num
+    """ update the image rating """
+    image = get_object_or_404(Image, pk=image_id)
+    image_orders = get_object_or_404(OrderItem, image_id=image_id)
+    total = num
+    count = 1
+
+    for order in image_orders:
+        total += order.rating
+        count += 1
+
+    new_rating = int(total/count)
+
+    image.rating = new_rating
     image.save()
+
+
+def leave_rating(request, order_number, image_id):
+    """ save the user comment and rating """
+
+    if request.method =='POST':
+        
+    comment = CommentForm
+
+    template = 'checkout/rating.html'
+
+    context = {
+        'comment': comment,
+    }
+
+    return render(request, template, context)

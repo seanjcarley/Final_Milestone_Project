@@ -53,14 +53,14 @@
                                             <div class="row mb-1">
                                                 <div class="col text-center">
                                                     {% if i.feedback == False %}
-                                                        <a href="" class="btn btn-site">
+                                                        <a href="{% url 'leave_rating' order_number image_id %}" class="btn btn-site">
                                                             <span class="icon">
                                                                 <i class="far fa-comments" aria-hidden="true"></i>
                                                             </span>
                                                             <span>Rate & Leave a Comment</span>
                                                         </a>
                                                     {% else %}
-                                                        
+                                                        <h1>Coming soon...</h1>
                                                     {% endif %}
                                                 </div>
                                             </div>
