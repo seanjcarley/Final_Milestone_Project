@@ -28,29 +28,40 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-12 col-md-8">
                             <table class="table">
                                 <tr>
                                     <th>Order Number:</th>
-                                    <td>{{ order.order_number }}</td>
+                                    <td class="text-left">{{ order.order_number }}</td>
                                 </tr>
                                 <tr>
                                     <th>Order Date:</th>
-                                    <td>{{ order.date }}</td>
+                                    <td class="text-left">{{ order.date }}</td>
                                 </tr>
                                 <tr>
                                     <th>Image(s) Ordered:</th>
                                     <td>
                                         {% for i in order.orderitems.all %}
                                             <div class="row mb-1">
-                                                <div class="col-4">
-                                                    {{ i.image.img_title }}
+                                                <div class="col-12 col-md-7 text-left">
+                                                    {{ i.image.img_title }} x{{ i.quantity }} @ €{{ i.image.base_price }} each.
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-12 col-md-5 text-center">
                                                     <img src="{{ i.image.tmnl_img.url }}" alt="{{ i.image.img_title }}">
                                                 </div>
-                                                <div class="col-4">
-                                                    <p>{{ i.quantity }} x €{{ i.image.base_price }}</p>
+                                            </div>
+                                            <div class="row mb-1">
+                                                <div class="col text-center">
+                                                    {% if i.feedback == False %}
+                                                        <a href="" class="btn btn-site">
+                                                            <span class="icon">
+                                                                <i class="far fa-comments" aria-hidden="true"></i>
+                                                            </span>
+                                                            <span>Rate & Leave a Comment</span>
+                                                        </a>
+                                                    {% else %}
+                                                        
+                                                    {% endif %}
                                                 </div>
                                             </div>
                                         {% endfor %}
@@ -58,11 +69,11 @@
                                 </tr>
                                 <tr>
                                     <th>Total:</th>
-                                    <td>€{{ order.order_total }}</td>
+                                    <td class="text-left">€{{ order.order_total }}</td>
                                 </tr>
                                 <tr>
                                     <th>Address:</th>
-                                    <td>
+                                    <td class="text-left">
                                         {{ order.full_name }}<br/>
                                         {{ order.street1 }}<br/>
                                         {% if order.street2 %}
@@ -76,7 +87,7 @@
                                 </tr>
                                 <tr>
                                     <th>Email:</th>
-                                    <td>{{ order.email }}</td>
+                                    <td class="text-left">{{ order.email }}</td>
                                 </tr>
                             </table>
                         </div>
