@@ -42,7 +42,7 @@ class OrderForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = OrderItem
-        fields = ('comment', 'rating')
+        fields = ('comment', 'rating', 'feedback')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -55,3 +55,4 @@ class CommentForm(forms.ModelForm):
         self.fields['comment'].widget.attrs['placeholder'] = placeholders['comment']
         self.fields['comment'].label = False
         self.fields['rating'].label = placeholders['rating']
+        self.fields['feedback'].type = 'hidden'

@@ -27,7 +27,6 @@ def profile(request):
     orders = profile.orders.all()
 
     seller = profile.seller
-    print(seller)
 
     template = 'user_profile/profile.html'
 

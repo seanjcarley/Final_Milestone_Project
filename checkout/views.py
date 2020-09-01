@@ -157,7 +157,6 @@ def checkout_success(request, order_number):
                 'default_country': order.country
             }
             user_profile_form = UserProfileForm(profile_data, instance=profile)
-            # print(user_profile_form.is_valid())
             if user_profile_form.is_valid():
                 user_profile_form.save()
 
@@ -203,15 +202,31 @@ def update_img_rating(num, image_id):
 
 def leave_rating(request, order_number, image_id):
     """ save the user comment and rating """
+    order = get_object_or_404(Order, order_number=order_number)
+    orderitem = OrderItem.objects.filter(order=order.id).filter(image=image_id)
+    item = orderitem[0]
 
-    if request.method =='POST':
-        
-    comment = CommentForm
+    if request.method == 'POST':
+        form = CommentForm(request.POST, instance=item)
+        print(form)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.feedback = True
+            comment.save()
+            messages.success(
+                request, 'Comment and Rating successfully submitted.')
+
+            return redirect(reverse('profile'))
+        else:
+            messages.error(request, 'Comment and Rating not saved!')
+    else:
+        form = CommentForm
 
     template = 'checkout/rating.html'
 
     context = {
-        'comment': comment,
+        'form': form,
+        'item': item,
     }
 
     return render(request, template, context)

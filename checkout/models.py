@@ -66,8 +66,9 @@ class OrderItem(models.Model):
         max_digits=6, decimal_places=2, null=False, blank=False,
         editable=False)
     rating = models.IntegerField(default=0)
-    comment = models.TextField(null=True, blank=True, max_length=256)
-    feedback =models.BooleanField(default=False)
+    comment = models.TextField(
+        null=True, blank=True, max_length=256)
+    feedback = models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
         """ override save method to set item order total and order total """
