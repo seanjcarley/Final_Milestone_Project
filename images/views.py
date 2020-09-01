@@ -32,7 +32,7 @@ def all_images(request):
             query = request.GET['q']
             if not query:
                 messages.error(request, "Please enter search details")
-                return redirect(reverse('images'))
+                return redirect(reverse('all_images'))
 
             queries = Q(img_title__icontains=query) \
                 | Q(user_id__username__icontains=query) \

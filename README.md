@@ -18,7 +18,6 @@ work etc...
   - [x] Get information as to the purpose of the website
   - [x] View a selection of the available works that can be purchased
   - [x] Have the option to sign up to the website
-  - [ ] Be able to read a selection of comments in relation to purchases on the site
   - [ ] See the pricing structure in relation to signing up as a seller
 
 #### Registered User (seller):
@@ -26,7 +25,6 @@ work etc...
   - [x] Be able to log in to my account
   - [x] Be able to update my account details
   - [x] See the list of works that I have made available on the site
-  - ~~[ ] See the number of views of each of my items~~
   - [x] See the number of sales of each of my items
   - [x] Be able to upload new items
   - [x] Be able to remove items that are no longer for sale
