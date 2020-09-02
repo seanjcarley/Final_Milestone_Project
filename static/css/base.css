@@ -128,3 +128,7 @@ header {
 .arrow-dark {
     border-bottom-color: #343a40 !important;
 }
+
+.checked {
+    color: orange;
+}

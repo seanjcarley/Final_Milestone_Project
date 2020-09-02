@@ -185,18 +185,19 @@ def update_vol_sold(num, image_id):
 
 def update_img_rating(num, image_id):
     """ update the image rating """
-    image = get_object_or_404(Image, pk=image_id)
-    image_orders = get_object_or_404(OrderItem, image_id=image_id)
-    total = num
-    count = 1
+    ratings = OrderItem.objects.filter(image=image_id).values('rating')
+    image = Image.objects.get(pk=image_id)
+    rating = 0
+    count = len(ratings)
+    for item in ratings:
+        print(item)
+        rating += item['rating']
 
-    for order in image_orders:
-        total += order.rating
-        count += 1
+    new_rating = (rating) / count
 
-    new_rating = int(total/count)
+    print(rating)
 
-    image.rating = new_rating
+    image.img_rating = int(new_rating)
     image.save()
 
 
@@ -208,11 +209,11 @@ def leave_rating(request, order_number, image_id):
 
     if request.method == 'POST':
         form = CommentForm(request.POST, instance=item)
-        print(form)
         if form.is_valid():
             comment = form.save(commit=False)
             comment.feedback = True
             comment.save()
+            update_img_rating(comment.rating, image_id)
             messages.success(
                 request, 'Comment and Rating successfully submitted.')
 

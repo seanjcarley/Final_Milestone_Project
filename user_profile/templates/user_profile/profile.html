@@ -5,13 +5,22 @@
 
 {% block content %}
     <div class="overlay"></div>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col">
+            <div class="col-12 col-lg-8 offset-lg-2 text-center">
                 <hr>
-                <h2>My Profile</h2>
-                <p>Username: <strong>{{ user }}</strong></p>
-                <p>Email: <strong>{{ user.email }}</strong></p>
+                <h2 class="text-header">My Profile</h2>
+                <hr>
+                <table class="mb-2 col-12 col-lg-2 offset-lg-5 table-borderless table-responsive text-left">
+                    <tr>
+                        <td>Username: </td>
+                        <th> {{ user }}</th>
+                    </tr>
+                    <tr>
+                        <td>Email: </td>
+                        <th>{{ user.email }}</th>
+                    </tr>
+                </table>
                 {% if seller == True %}
                     <a href="{% url 'all_user_images' %}" class="btn btn-site">
                         <span class="icon">
@@ -24,16 +33,16 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-lg-4">
-                <h5>Default Delivery Details</h5>
+            <div class="col-12 col-lg-3 offset-lg-1 text-center">
+                <h5 class="text-header">Default Delivery Details</h5>
                 <form class="" action="{% url 'profile' %}" method="POST" id="">
                     {% csrf_token %}
                     {{ form|crispy }}
                     <button class="btn btn-site">Update Information</button>
                 </form>
             </div>
-            <div class="col-12 col-lg-8">
-                <h5>Order History</h5>
+            <div class="col-12 col-lg-7">
+                <h5 class="text-center text-header">Order History</h5>
                 <table class="table">
                     <thead>
                         <tr>

@@ -5,53 +5,58 @@
 
 {% block content %}
     <div class="overlay"></div>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-8 offset-lg-2 text-center">
                 <hr>
-                <h2>Image Upload</h2>
-                <p>Fill in the details below to upload your image.</p>
+                <h2 class="text-header">Image Upload</h2>
+                <p class="text-weak">Fill in the details below to upload your image.</p>
                 <hr>
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-8 offset-lg-2">
                 <form enctype="multipart/form-data" class="" action="{% url 'add_image' %}" method="POST" id="upload-form">
                     {% csrf_token %}
-                    <fieldset>
-                        <legend>Image Details</legend>
+                    <fieldset class="col col-md-6 offset-md-3">
+                        <legend class="text-center text-header">Image Details</legend>
                         {{ iform.img_title | as_crispy_field }}
                         {{ iform.img_taken | as_crispy_field }}
                         {{ iform.base_price | as_crispy_field }}
                     </fieldset>
-                    <fieldset>
-                        <legend>Select files to upload</legend>
+                    <hr>
+                    <fieldset class="col col-md-6 offset-md-3">
+                        <legend class="text-center text-header">Select files to upload</legend>
                         {{ iform.prev_img | as_crispy_field }}
                         {{ iform.tmnl_img | as_crispy_field }}
                     </fieldset>
-                    <fieldset>
-                        <legend>Camera Used</legend>
+                    <hr>
+                    <fieldset class="col col-md-6 offset-md-3">
+                        <legend class="text-center text-header">Camera Used</legend>
                         {{ dform.make | as_crispy_field }}
                         {{ dform.model | as_crispy_field }}
                     </fieldset>
-                    <fieldset>
-                        <legend>Settings Used</legend>
+                    <hr>
+                    <fieldset class="col col-md-6 offset-md-3">
+                        <legend class="text-center text-header">Settings Used</legend>
                         {{ dform.focal_length | as_crispy_field }}
                         {{ dform.aperture | as_crispy_field }}
                         {{ dform.shutter_speed_sec | as_crispy_field }}
                         {{ dform.iso | as_crispy_field }}
                     </fieldset>
-                    <fieldset>
-                        <legend>Location</legend>
+                    <hr>
+                    <fieldset class="col col-md-6 offset-md-3">
+                        <legend class="text-center text-header">Location</legend>
                         {{ dform.city | as_crispy_field	}}
                         {{ dform.country | as_crispy_field }}
                     </fieldset>
+                    <hr>
                     <fieldset>
                         <input type="hidden" value="{{ user }}" name="user_id">
                     </fieldset>
                     <div class="row">
-                        <div class="col">
-                            <button class="btn">Upload</button>
+                        <div class="col text-center">
+                            <button class="btn btn-site">Upload</button>
                         </div>
                     </div>
                 </form>
