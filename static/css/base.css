@@ -1,134 +1,88 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700|Exo:100,200,300,400,500,600,700');
+/*
+#2f003d - Russian Violet
+#ad97a4 - Heliotrope Gray
+#f0edee - Isabelline
+#558c8c - Steel Teal
+#0075a2 - Celadon Blue
+*/
+
+
+/* ------- elements ------- */
+a {
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    color: #2f003d;
+    background-color: #d2c6ce;
+}
+
+header.container-fluid {
+    padding: 0;
+}
+
 html {
     height: 100%;
 }
 
-body {
-    background-color: #7D6F86;
+section {
+    background-color: #d2c6ce;
 }
 
-header {
+.bg-image {
     background: url('/media/Test1.jpg') no-repeat center;
-    background-size: cover;
-    height: 15vh;
-    z-index: 0;
+    background-size: 100%;
+    background-color: #2f003d;
 }
 
-.bg-prp {
-    background-color: #2F003D;
+.blurb {
+    background-color: #f7faef;
 }
-.border-search {
-    background-color: #7D6F86;
-    color: #2F003D;
-    border: #2F003D;
+
+.btn-card {
+    background-color: #598392;
+    color: #f7faef;
+}
+
+.btn-card:hover {
+    background-color: #aec9b0;
+    color: #598392;
 }
 
 .btn-search {
-    background-color: #2F003D;
-    color: #F0EDEE;
-    border: #2F003D;
+    background-color: #d2c6ce;
+    color: #598392;
 }
 
 .btn-search:hover {
-    background-color: #7D6F86;
-    color: #2F003D;
-    border: #F0EDEE;
-}
-
-.dropdown-item {
-    background-color: #2F003D;
-    color: #F0EDEE;
-}
-
-.dropdown-item:hover {
-    background-color: #7D6F86;
-    color: #2F003D;
+    background-color: #aec3b0;
+    color: #598392;
 }
 
 .btn-site {
-    background-color: #2F003D;
-    color: #F0EDEE;
+    background-color: #d2c6ce;
+    color: #598392;
 }
 
 .btn-site:hover {
-    background-color: #7D6F86;
-    color: #2F003D;
+    background-color: #aec3b0;
+    color: #598392;
 }
 
-.logo-font {
-    color: #F0EDEE;
-}
-
-.text-light {
-    color: #F0EDEE;
-}
-
-.card,
-.card-body {
-   background-color: #F0EDEE;
-   color: #2F003D;
-}
-
-/* bootstrap toasts */
-.message-container {
-    position: fixed;
-    top: 72px;
-    right: 15px;
-    z-index: 999;
-}
-
-.custom-toast {
-    overflow: visible;
-}
-
-.toast-capper {
-    height: 2px;
-}
-
-/* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
-.arrow-up {
-    width: 0; 
-    height: 0; 
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent; 
-    border-bottom: 10px solid black;
-    position: absolute;
-    top: -10px;
-    right: 36px;
-}
-
-/* Convenience classes - colors copied from Bootstrap */
-.arrow-primary {
-    border-bottom-color: #007bff !important;
-}
-
-.arrow-secondary {
-    border-bottom-color: #6c757d !important;
-}
-
-.arrow-success {
-    border-bottom-color: #28a745 !important;
-}
-
-.arrow-danger {
-    border-bottom-color: #dc3545 !important;
-}
-
-.arrow-warning {
-    border-bottom-color: #ffc107 !important;
-}
-
-.arrow-info {
-    border-bottom-color: #17a2b8 !important;
-}
-
-.arrow-light {
-    border-bottom-color: #f8f9fa !important;
-}
-
-.arrow-dark {
-    border-bottom-color: #343a40 !important;
+.card {
+    background-color: #f7faef;
 }
 
 .checked {
-    color: orange;
+    color: gold;
+}
+
+.search-row {
+    background-color: #2f003d;
 }

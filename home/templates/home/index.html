@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_title %} - Home{% endblock %}
+
 {% block page_header %}{% endblock %}
 
 {% block content %}
     {% include 'includes/search_no_filter.html' %}
     <div class="row m-0">
-        <div class="col-12 col-lg-4">
+        <div class="col-12 col-lg-4 blurb">
             <div class="row">
                 <div class="col">
                     <h2 class="text-center">What we do?</h2>
@@ -75,17 +77,15 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-4"></div>
-                <div class="col-2">
+                <div class="col-6 text-center">
                     <a href="{% url 'account_signup' %}" class="btn btn-site">Sign Up</a>
                 </div>
-                <div class="col-2">
+                <div class="col-6 text-center">
                     <a href="{% url 'account_login' %}" class="btn btn-site">Log In</a>
                 </div>
-                <div class="col-4"></div>
             </div>
         </div>
-        <div class="col-12 col-lg-8">
+        <div class="col-12 col-lg-8 top-images">
             <div class="row">
                 <div class="col">
                     <h2 class="text-center">Top 5 Images</h2>

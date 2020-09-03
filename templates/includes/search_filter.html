@@ -1,7 +1,7 @@
-<div class="row m-2">
+<div class="row search-row py-2">
     <div class="col-lg-3">
         <div class="sort-select-wrapper w-50">
-            <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+            <select id="sort-selector" class="mx-5 custom-select custom-select-sm rounded-10 border-search">
                 <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
                 <option value="img_rating_asc" {% if current_sorting == 'img_rating_asc' %}selected{% endif %}>Rating (low to high)</option>
                 <option value="img_rating_desc" {% if current_sorting == 'img_rating_desc' %}selected{% endif %}>Rating (high to low)</option>

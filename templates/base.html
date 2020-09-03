@@ -34,58 +34,20 @@
 
     {% block extra_js %}{% endblock %}
 
-    <title>AstroPrint.com {% block extra_title %}{% endblock %}</title>
+    <title>AstroPrint.com{% block extra_title %}{% endblock %}</title>
   </head>
   <body>
     <header class="container-fluid">
-        <div id="topnav" class="row">
-            <div class="col-12 col-lg-4">
-                <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                    <h1 class="logo-font mt-2 mt-lg-4"><strong>AstroPrint</strong>.com</h1>
-                </a>
-            </div>
-            <div class="col-12 col-lg-6"></div>
-            <div class="col-12 col-lg-2">
-                <ul class="list-inline mt-2 mt-lg-4 ml-auto">
-                    <li class="list-inline-item dropdown">
-                        <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="text-center text-light">
-                                <div><i class="fas fa-user fa-lg"></i></div>
-                                <p class="my-0">My Account</p>
-                            </div>
-                        </a>
-                        <div class="dropdown-menu border-0 bg-prp" aria-labelledby="user-options">
-                            {% if request.user.is_authenticated %}
-                                {% if request.user.is_superuser %}
-                                    <a href="{% url 'all_images_su' %}" class="dropdown-item">Image Management</a>
-                                {% endif %}
-                                <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                            {% else %}
-                                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                                <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                            {% endif %}
-                        </div>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'show_bag' %}">
-                            <div class="text-center text-light">
-                                <div><i class="fas fa-shopping-cart fa-lg"></i></div>
-                                <p class="my-0">
-                                    {% if total %}
-                                        €{{ total|floatformat:2 }}
-                                    {% else %}
-                                        €0.00
-                                    {% endif %}
-                                </p>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        {% include 'includes/mobile-header.html' %}
     </header>
     
+    <section>
+        {% block page_header %}{% endblock %}
+        {% block content %}{% endblock %}
+    </section>
+
+    <footer></footer>
+
     {% if messages %}
         <div class="message-container">
             {% for message in messages %}
@@ -103,13 +65,6 @@
             {% endfor %}
         </div>
     {% endif %}
-    
-    <section>
-        {% block page_header %}{% endblock %}
-        {% block content %}{% endblock %}
-    </section>
-
-    <footer></footer>
     
     {% block post_load_js %}
         <script type="text/javascript">
