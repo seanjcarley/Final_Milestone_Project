@@ -41,7 +41,7 @@
         {% include 'includes/mobile-header.html' %}
     </header>
     
-    <section>
+    <section class="h-100">
         {% block page_header %}{% endblock %}
         {% block content %}{% endblock %}
     </section>
@@ -68,9 +68,7 @@
     
     {% block post_load_js %}
         <script type="text/javascript">
-            $(document).ready(function() {
-                $('.toast').toast('show');
-            });
+            $('.toast').toast('show');
         </script>
     {% endblock %}
   </body>

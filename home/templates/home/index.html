@@ -3,100 +3,28 @@
 
 {% block extra_title %} - Home{% endblock %}
 
-{% block page_header %}{% endblock %}
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
 
 {% block content %}
-    {% include 'includes/search_no_filter.html' %}
-    <div class="row m-0">
-        <div class="col-12 col-lg-4 blurb">
-            <div class="row">
-                <div class="col">
-                    <h2 class="text-center">What we do?</h2>
-                    <p>
-                        AstroPrint.com intends to provide a space for people 
-                        with an intrest in Astrophotography to:
-                    </p>
-                    <ul>
-                        <li>
-                            view stunning images of the night sky
-                        </li>
-                        <li>
-                            see the settings used to take these images
-                        </li>
-                        <li>
-                            provide a secure means for photographers to sell 
-                            their work
-                        </li>
-                        <li>
-                            provide a secure means for people to purchace a 
-                            print of their favourites
-                        </li>
-                    </ul>
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-7 col-md-6 my-auto">
+                <h1 class="display-4 logo-font text-ivory">
+                    Your One-Stop Shop for Amazing Astronomical Images
+                </h1>
+                <div class="my-5">
+                    <h4>
+                        <a href="{% url 'all_images' %}" class="btn btn-home-pg">
+                            View All...
+                        </a>
+                    </h4>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col col-md-6">
-                    <h3 class="text-center">Want to show off?</h3>
-                    <p>
-                        Sign up as a seller, and use this site as you personal 
-                        store.
-                    </p>
-                    <ul>
-                        <li>
-                            receive a link to be included in makerting material, 
-                            to link to your images in this site
-                        </li>
-                        <li>upload you images for viewing</li>
-                        <li>add details about the photo</li>
-                        <li>set the price</li>
-                        <li>manage customer orders</li>
-                        <li>manage customer queries</li>
-                    </ul>
-                </div>
-                <div class="col col-md-6">
-                    <h3 class="text-center">Want to be impressed?</h3>
-                    <p>
-                        Look around the site to see the beauty of the night sky 
-                        and be inspired
-                    </p>
-                    <ul>
-                        <li>
-                            we encurage photographers to provide some information 
-                            in raleation to the settings they used for each photo
-                        </li>
-                        <li>
-                            use out secure payment chanel to order a print of an 
-                            image you like and have it delivered. Some sellers may
-                            even sell digital copies
-                        </li>
-                        <li>
-                            sign up and store your details to streamline future
-                            purchases.
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-6 text-center">
-                    <a href="{% url 'account_signup' %}" class="btn btn-site">Sign Up</a>
-                </div>
-                <div class="col-6 text-center">
-                    <a href="{% url 'account_login' %}" class="btn btn-site">Log In</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-lg-8 top-images">
-            <div class="row">
-                <div class="col">
-                    <h2 class="text-center">Top 5 Images</h2>
-                </div>
-            </div>
-            <div class="row">            
-                {% for i in images %}
-                    <div class="col-sm-6 col-md-6 col-lg-4">  
-                        {% include 'images/includes/image_card.html' %}
-                    </div>
-                {% endfor %}
             </div>
         </div>
     </div>

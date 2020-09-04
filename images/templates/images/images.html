@@ -5,6 +5,8 @@
     <link rel="stylesheet" href="{% static 'images/css/image.css' %}">
 {% endblock %}
 
+{% block extra_title %} - Images {% if search_term %}  ({{ search_term }}) {% endif %} {% endblock %}
+
 {% block page_header %}{% endblock %}
 
 {% block content %}
@@ -30,7 +32,7 @@
                                 <h5>Only {{ images|length }} image found </h5>
                             {% endif %}        
                         {% endif %}
-                        {% if current_sorting != "None" %}
+                        {% if current_sorting != "None_None" %}
                             <h6>{{ current_sorting }}</h6>
                         {% endif %}
                     </div>
@@ -43,6 +45,9 @@
             </div>
         </div>
     </div>
+{% endblock %}
 
-    
+{% block post_load_js %}
+    {{ block.super }}
+    <script src="{% static 'js/sort.js' %}"></script>
 {% endblock %}

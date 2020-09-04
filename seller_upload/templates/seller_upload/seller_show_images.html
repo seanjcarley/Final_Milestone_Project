@@ -46,11 +46,11 @@
         </div>
         {% for image in images %}
             <div class="row">
-                <div class="col-12 col-md-3 offset-md-1">
+                <div class="col-12 col-md-4 offset-md-1">
                     <img class="img-fluid mt-3" src="{{ image.tmnl_img.url }}" width="160" height="106">
                 </div>
-                <div class="col-12 col-md-4">
-                    <table class="table">
+                <div class="col-12 col-md-3">
+                    <table class="table table-borderless table-text">
                         {% if request.user.is_superuser %}
                             <tr>
                                 <th>User ID: </th>
@@ -76,8 +76,8 @@
                     </table>
                 </div>
                 
-                <div class="col-12 col-md-4">
-                    <table class="table">
+                <div class="col-12 col-md-3">
+                    <table class="table table-borderless table-text">
                         <tr>
                             <th>Number Sold: </th>
                             <td>{{ image.vol_sold }}</td>
@@ -86,6 +86,7 @@
                             <th>Current Rating: </th>
                             <td>{{ image.img_rating }}/5</td>
                         </tr>
+                        <tr><th></th></tr>
                         <tr>
                             <td>
                                 <div class="submit-button text-right">
@@ -111,7 +112,7 @@
                     </table>
                 </div>
             </div>
-            <hr>
+            <hr class="col-10 offset-1 col-md-8 offset-md-2">
         {% endfor %}
 
     

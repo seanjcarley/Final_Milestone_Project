@@ -1,14 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700|Exo:100,200,300,400,500,600,700');
-/*
-#2f003d - Russian Violet
-#ad97a4 - Heliotrope Gray
-#f0edee - Isabelline
-#558c8c - Steel Teal
-#0075a2 - Celadon Blue
-*/
 
-
-/* ------- elements ------- */
 a {
     font-weight: 500;
 }
@@ -18,21 +9,16 @@ a:hover {
 }
 
 body {
-    font-family: "Roboto", sans-serif;
+    background: url('/media/Test1.jpg') no-repeat center center fixed;
+    background-size: cover;
     color: #2f003d;
-    background-color: #d2c6ce;
-}
-
-header.container-fluid {
-    padding: 0;
+    font-family: "Roboto", sans-serif;
+    height: calc(100vh - 82px);
 }
 
 html {
     height: 100%;
-}
-
-section {
-    background-color: #d2c6ce;
+    width: 100%;
 }
 
 .bg-image {
@@ -41,17 +27,39 @@ section {
     background-color: #2f003d;
 }
 
+.bg-color {
+    background-color: #2f003d;
+}
+
 .blurb {
     background-color: #f7faef;
 }
 
-.btn-card {
+.btn-card,
+.btn-search {
     background-color: #598392;
     color: #f7faef;
 }
 
-.btn-card:hover {
+.btn-card:hover,
+.btn-card:active,
+.btn-card:focus,
+.btn-search:hover,
+.btn-search:active,
+.btn-search:focus {
     background-color: #aec9b0;
+    color: #598392;
+}
+
+.btn-home-pg {
+    background-color: #2f003d;
+    color: #f7faef;
+    min-width: 15rem;
+    min-height: 3rem;
+}
+
+.btn-home-pg:hover {
+    background-color: #aec3b0;
     color: #598392;
 }
 
@@ -66,8 +74,8 @@ section {
 }
 
 .btn-site {
-    background-color: #d2c6ce;
-    color: #598392;
+    background-color: #2f003d;
+    color: #f7faef;
 }
 
 .btn-site:hover {
@@ -83,6 +91,37 @@ section {
     color: gold;
 }
 
+.container-fluid {
+    margin: 0;
+    padding: 0;
+}
+
+.logo-font {
+    text-transform: uppercase;
+}
+
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: rgba(255, 255, 255, .75);
+	z-index: -8888;
+}
+
+.row {
+    margin: 0;
+}
+
 .search-row {
     background-color: #2f003d;
+}
+
+.table-text {
+    color: #2f003d;
+}
+
+.text-ivory {
+    color: #f7faef;
 }
