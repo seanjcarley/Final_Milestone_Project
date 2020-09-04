@@ -11,7 +11,7 @@
                 <hr>
                 <h2 class="text-header">My Profile</h2>
                 <hr>
-                <table class="mb-2 col-12 col-lg-2 offset-lg-5 table-borderless table-responsive text-left">
+                <table class="mb-2 col-12 col-lg-4 offset-lg-4 table-borderless table-responsive text-left">
                     <tr>
                         <td>Username: </td>
                         <th> {{ user }}</th>
@@ -43,38 +43,50 @@
             </div>
             <div class="col-12 col-lg-7">
                 <h5 class="text-center text-header">Order History</h5>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Order number</th>
-                            <th>Date</th>
-                            <th>Items</th>
-                            <th>Order Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        {% for order in orders %}
+                {% if orders %}
+                    <table class="table table-text">
+                        <thead>
                             <tr>
-                                <td>
-                                    <a href="{% url 'order_history' order.order_number %}"
-                                     title="{{ order.order_number }}" class="btn btn-site" >
-                                        {{ order.order_number|truncatechars:6 }}
-                                     </a>
-                                </td>
-                                <td>{{ order.date }}</td>
-                                <td>
-                                    <ul>
-                                        {% for item in order.orderitems.all %}
-                                            <li>{{ item.image.img_title }}</li>
-                                        {% endfor %}
-                                    </ul>
-                                </td>
-                                <td>{{ order.order_total }}</td>
+                                <th>Order number</th>
+                                <th>Date</th>
+                                <th>Items</th>
+                                <th>Order Total</th>
                             </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+
+                            {% for order in orders %}
+                                <tr>
+                                    <td>
+                                        <a href="{% url 'order_history' order.order_number %}"
+                                        title="{{ order.order_number }}" class="btn btn-site" >
+                                            {{ order.order_number|truncatechars:6 }}
+                                        </a>
+                                    </td>
+                                    <td>{{ order.date }}</td>
+                                    <td>
+                                        <ul>
+                                            {% for item in order.orderitems.all %}
+                                                <li>{{ item.image.img_title }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    </td>
+                                    <td>{{ order.order_total }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <div class="row">
+                        <div class="col text-center">
+                            <hr>
+                            <p class="table-text">You have not made any order with this profile!</p>
+                            <a href="{% url 'all_images' %}" class="btn btn-home-pg">
+                                View All...
+                            </a>
+                        </div>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>
