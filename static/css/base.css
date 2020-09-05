@@ -87,6 +87,11 @@ html {
 }
 
 .logo-font {
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+
+.menu-font {
     text-transform: uppercase;
 }
 
@@ -233,4 +238,10 @@ html {
 
 .arrow-dark {
     border-bottom-color: #343a40 !important;
+}
+
+@media (max-width: 768px) {
+    .logo-font {
+        font-size: 1.5rem;
+    }
 }

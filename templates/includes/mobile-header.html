@@ -4,7 +4,7 @@
 -->
 <nav class="navbar navbar-expand-lg bg-color navbar-dark m-0">
     <!-- brand -->
-    <a href="{% url 'home' %}" class="navbar-brand logo-font"><h1><strong>AstroPrint</strong>.com</h1></a>
+    <a href="{% url 'home' %}" class="navbar-brand logo-font"><strong>AstroPrint</strong>.com</a>
     <!-- toggler/collapsible button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
@@ -14,13 +14,13 @@
         <!-- added ml-auto to right align the menu on desktop -->
         <ul class="navbar-nav ml-auto">
             <li class="nav-item text-center">
-                <a class="nav-link logo-font" href="{% url 'home' %}">
+                <a class="nav-link menu-font" href="{% url 'home' %}">
                 <i class="fa fa-home" aria-hidden="true"></i>
                 <p class="my-0">Home</p>
                 </a>
             </li>
             <li class="nav-item dropdown text-center">
-                <a class="nav-link logo-font" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link menu-font" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div><i class="fas fa-user fa-lg"></i></div>
                     <p class="my-0">My Account</p>
                 </a>
@@ -38,7 +38,7 @@
                 </div>
             </li>
             <li class="nav-item text-center">
-                <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link logo-font" href="{% url 'show_bag' %}">
+                <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link menu-font" href="{% url 'show_bag' %}">
                     <i class="fas fa-shopping-cart fa-lg"></i>
                     <p class="my-0">
                         {% if total %}

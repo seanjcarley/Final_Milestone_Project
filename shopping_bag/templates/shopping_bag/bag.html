@@ -26,17 +26,17 @@
                         </div>
                         {% for image in bag_images %}
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-12 col-md-6">
                                     {% include 'shopping_bag/bag_image.html' %}
                                 </div>
-                                <div class="col-6">
+                                <div class="col-12 col-md-6">
                                     {% include 'shopping_bag/bag_image-info.html' %}
                                 </div>
                             </div>
                             <hr>
                         {% endfor %}
                         <div class="row">
-                            <div class="col">
+                            <div class="col-12 col-md-6">
                                 {% include 'shopping_bag/bag_buttons.html' %}
                             </div>
                         </div>
