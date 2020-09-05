@@ -48,8 +48,8 @@
                         <thead>
                             <tr>
                                 <th>Order number</th>
-                                <th>Date</th>
-                                <th>Items</th>
+                                <th class="desktop">Date</th>
+                                <th class="desktop">Items</th>
                                 <th>Order Total</th>
                             </tr>
                         </thead>
@@ -63,8 +63,8 @@
                                             {{ order.order_number|truncatechars:6 }}
                                         </a>
                                     </td>
-                                    <td>{{ order.date }}</td>
-                                    <td>
+                                    <td class="desktop">{{ order.date }}</td>
+                                    <td class="desktop">
                                         <ul>
                                             {% for item in order.orderitems.all %}
                                                 <li>{{ item.image.img_title }}</li>

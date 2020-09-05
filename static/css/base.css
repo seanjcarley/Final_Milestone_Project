@@ -95,6 +95,10 @@ html {
     text-transform: uppercase;
 }
 
+.mobile {
+    display: none;
+}
+
 .overlay {
 	height: 100%;
 	width: 100%;
@@ -240,8 +244,20 @@ html {
     border-bottom-color: #343a40 !important;
 }
 
+#sort-selector {
+    min-height: 36px;
+}
+
 @media (max-width: 768px) {
     .logo-font {
         font-size: 1.5rem;
+    }
+
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: block
     }
 }

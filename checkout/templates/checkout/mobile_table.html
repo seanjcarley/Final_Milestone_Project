@@ -1,0 +1,107 @@
+<table class="table table-text table-borderless table-striped mobile">
+    <tr>
+        <th>Order number</th>
+    </tr>
+    <tr>
+        <td>{{ order.order_number }}</td>
+    </tr>
+    <tr>
+        <th>Order Date</th>
+    </tr>
+    <tr>
+        <td>{{ order.date }}</td>
+    </tr>
+    <tr>
+        <th>Image(s) Ordered</th>
+    </tr>
+    <tr>
+        <td>
+            {% for i in order.orderitems.all %}
+                <div class="row mb-1">
+                    <div class="col-12 col-md-7">
+                        {{ i.image.img_title }} x{{ i.quantity }} @ €{{ i.image.base_price }} each.
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col text-center">
+                        {% if i.feedback == False %}
+                            <a href="{% url 'leave_rating' order.order_number i.image_id %}" class="btn btn-site">
+                                <span class="icon">
+                                    <i class="far fa-comments" aria-hidden="true"></i>
+                                </span>
+                                <span>Rate & Leave a Comment</span>
+                            </a>
+                        {% else %}
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="star text-center">
+                                        <span>Your rating: </span>
+                                        {% if i.rating == 5 %}
+                                            <span class="fa fa-star star-1 checked"></span>
+                                            <span class="fa fa-star star-2 checked"></span>
+                                            <span class="fa fa-star star-3 checked"></span>
+                                            <span class="fa fa-star star-4 checked"></span>
+                                            <span class="fa fa-star star-5 checked"></span>
+                                        {% elif i.rating == 4 %}
+                                            <span class="fa fa-star star-1 checked"></span>
+                                            <span class="fa fa-star star-2 checked"></span>
+                                            <span class="fa fa-star star-3 checked"></span>
+                                            <span class="fa fa-star star-4 checked"></span>
+                                            <span class="fa fa-star star-5"></span>
+                                        {% elif i.rating == 3 %}
+                                            <span class="fa fa-star star-1 checked"></span>
+                                            <span class="fa fa-star star-2 checked"></span>
+                                            <span class="fa fa-star star-3 checked"></span>
+                                            <span class="fa fa-star star-4"></span>
+                                            <span class="fa fa-star star-5"></span>
+                                        {% elif i.rating == 2 %}
+                                            <span class="fa fa-star star-1 checked"></span>
+                                            <span class="fa fa-star star-2 checked"></span>
+                                            <span class="fa fa-star star-3"></span>
+                                            <span class="fa fa-star star-4"></span>
+                                            <span class="fa fa-star star-5"></span>
+                                        {% elif i.rating == 1 %}
+                                            <span class="fa fa-star star-1 checked"></span>
+                                            <span class="fa fa-star star-2"></span>
+                                            <span class="fa fa-star star-3"></span>
+                                            <span class="fa fa-star star-4"></span>
+                                            <span class="fa fa-star star-5"></span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </td>
+    </tr>
+    <tr>
+        <th>Total</th>
+    </tr>
+    <tr>
+        <td>€{{ order.order_total }}</td>
+    </tr>
+    <tr>
+        <th>Address</th>
+    </tr>
+    <tr>
+        <td>
+            {{ order.full_name }}<br/>
+            {{ order.street1 }}<br/>
+            {% if order.street2 %}
+                {{ order.street2 }}<br/>
+            {% endif %}
+            {{ order.town_city }}<br/>
+            {{ order.county }}<br/>
+            {{ order.post_code }}<br/>
+            {{ order.country }}<br/>
+</td>
+    </tr>
+    <tr>
+        <th>Email</th>
+    </tr>
+    <tr>
+        <td>{{ order.email }}</td>
+    </tr>
+</table>

@@ -5,6 +5,9 @@
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
+{% block extra_title %} - Order Confirmation{% endblock %}
+
+
 {% block page_header %}
 {% endblock %}
 
@@ -12,7 +15,7 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col-12">
                 <hr>
                 <h2>Thank you!</h2>
                 <hr>
@@ -24,7 +27,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col">
+            <div class="col-12">
                 <div>
                     <div class="row">
                         <div class="col">
@@ -32,8 +35,9 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-12 col-md-8">
-                            <table class="table table-text">
+                        <div class="col-12 col-md-8 px-0">
+                            {% include 'checkout/mobile_table.html' %}
+                            <table class="table table-text desktop">
                                 <tr>
                                     <th>Order Number:</th>
                                     <td class="text-left">{{ order.order_number }}</td>
@@ -50,11 +54,11 @@
                                                 <div class="col-12 col-md-7 text-left">
                                                     {{ i.image.img_title }} x{{ i.quantity }} @ €{{ i.image.base_price }} each.
                                                 </div>
-                                                <div class="col-12 col-md-5 text-center">
+                                                <div class="col-12 col-md-5 text-center desktop">
                                                     <img src="{{ i.image.tmnl_img.url }}" alt="{{ i.image.img_title }}">
                                                 </div>
                                             </div>
-                                            <div class="row mb-1">
+                                            <div class="row mb-1 desktop">
                                                 <div class="col text-center">
                                                     {% if i.feedback == False %}
                                                         <a href="{% url 'leave_rating' order.order_number i.image_id %}" class="btn btn-site">
@@ -69,35 +73,35 @@
                                                                 <div class="star text-center">
                                                                     <span>Your rating: </span>
                                                                     {% if i.rating == 5 %}
-                                                                        <span class="fa fa-star checked"></span>
-                                                                        <span class="fa fa-star checked"></span>
-                                                                        <span class="fa fa-star checked"></span>
-                                                                        <span class="fa fa-star checked"></span>
-                                                                        <span class="fa fa-star checked"></span>
+                                                                        <span class="fa fa-star star-1 checked"></span>
+                                                                        <span class="fa fa-star star-2 checked"></span>
+                                                                        <span class="fa fa-star star-3 checked"></span>
+                                                                        <span class="fa fa-star star-4 checked"></span>
+                                                                        <span class="fa fa-star star-5 checked"></span>
                                                                     {% elif i.rating == 4 %}
-                                                                        <span class="fa fa-star checked"></span>
-                                                                        <span class="fa fa-star checked"></span>
-                                                                        <span class="fa fa-star checked"></span>
-                                                                        <span class="fa fa-star checked"></span>
-                                                                        <span class="fa fa-star"></span>
+                                                                        <span class="fa fa-star star-1 checked"></span>
+                                                                        <span class="fa fa-star star-2 checked"></span>
+                                                                        <span class="fa fa-star star-3 checked"></span>
+                                                                        <span class="fa fa-star star-4 checked"></span>
+                                                                        <span class="fa fa-star star-5"></span>
                                                                     {% elif i.rating == 3 %}
-                                                                        <span class="fa fa-star checked"></span>
-                                                                        <span class="fa fa-star checked"></span>
-                                                                        <span class="fa fa-star checked"></span>
-                                                                        <span class="fa fa-star"></span>
-                                                                        <span class="fa fa-star"></span>
+                                                                        <span class="fa fa-star star-1 checked"></span>
+                                                                        <span class="fa fa-star star-2 checked"></span>
+                                                                        <span class="fa fa-star star-3 checked"></span>
+                                                                        <span class="fa fa-star star-4"></span>
+                                                                        <span class="fa fa-star star-5"></span>
                                                                     {% elif i.rating == 2 %}
-                                                                        <span class="fa fa-star checked"></span>
-                                                                        <span class="fa fa-star checked"></span>
-                                                                        <span class="fa fa-star"></span>
-                                                                        <span class="fa fa-star"></span>
-                                                                        <span class="fa fa-star"></span>
+                                                                        <span class="fa fa-star star-1 checked"></span>
+                                                                        <span class="fa fa-star star-2 checked"></span>
+                                                                        <span class="fa fa-star star-3"></span>
+                                                                        <span class="fa fa-star star-4"></span>
+                                                                        <span class="fa fa-star star-5"></span>
                                                                     {% elif i.rating == 1 %}
-                                                                        <span class="fa fa-star checked"></span>
-                                                                        <span class="fa fa-star"></span>
-                                                                        <span class="fa fa-star"></span>
-                                                                        <span class="fa fa-star"></span>
-                                                                        <span class="fa fa-star"></span>
+                                                                        <span class="fa fa-star star-1 checked"></span>
+                                                                        <span class="fa fa-star star-2"></span>
+                                                                        <span class="fa fa-star star-3"></span>
+                                                                        <span class="fa fa-star star-4"></span>
+                                                                        <span class="fa fa-star star-5"></span>
                                                                     {% endif %}
                                                                 </div>
                                                             </div>
