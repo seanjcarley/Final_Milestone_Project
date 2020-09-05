@@ -1,16 +1,7 @@
 <div class="card mx-auto my-auto" style="width: 15rem; height: 21rem;">
     <a class="mx-auto" data-fancybox="gallery" 
         href="{{ i.prev_img.url }}" title="{{ i.img_title }}" 
-        data-caption=
-        "{{ i.img_title }} by {{ i.user_id }}
-        {% if i.img_data_id.city != 'N/A' or i.img_data_id.country != '' %}<br>{% endif %}
-        {% if i.img_data_id.city and i.img_data_id.city != 'N/A' %}
-            {{ i.img_data_id.city }},
-        {% endif %} 
-        {% if i.img_data_id.country and i.img_data_id.country != '' %}
-            {{ i.img_data_id.country }}
-        {% endif %} 
-        <br> {{ i.img_taken }}">
+        data-caption="{% include 'images/includes/fancybox_layout.html' %}">
         <img class="img-fluid mt-3" src="{{ i.tmnl_img.url }}" width="160" height="106">
     </a>
     <div class="card-body">
