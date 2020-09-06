@@ -1,0 +1,1 @@
+web: gunicorn fm_astroprints.wsgi:application
