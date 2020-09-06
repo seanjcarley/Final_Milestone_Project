@@ -51,3 +51,10 @@ class TestOrderForm(TestCase):
         self.assertIn('country', form.errors.keys())
         self.assertEqual(
             form.errors['country'][0], 'This field is required.')
+
+    def test_order_form_meta(self):
+        """ test the number of fields in the meta """
+        form = OrderForm()
+        self.assertEqual(
+            form.Meta.fields, ('full_name', 'email', 'phone_no', 'street1',
+            'street2', 'town_city', 'county', 'post_code', 'country'))
