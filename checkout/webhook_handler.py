@@ -16,22 +16,22 @@ class StripeWH_Handler:
     def __init__(self, request):
         self.request = request
 
-    # def _send_conf_email(self, order):
-    #     """ send conf email """
-    #     cust_email = order.email
-    #     subject = render_to_string(
-    #         '', {'order': order}
-    #     )
-    #     body = render_to_string(
-    #         '', {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL}
-    #     )
+    def _send_conf_email(self, order):
+        """ send conf email """
+        cust_email = order.email
+        subject = render_to_string(
+            '', {'order': order}
+        )
+        body = render_to_string(
+            '', {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL}
+        )
 
-    #     send_mail(
-    #         subject,
-    #         body,
-    #         settings.DEFAULT_FROM_EMAIL,
-    #         [cust_email]
-    #     )
+        send_mail(
+            subject,
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            [cust_email]
+        )
 
     def handle_event(self, event):
         """ handle unknown, generic webhooks """

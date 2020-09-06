@@ -1,0 +1,22 @@
+Hello {{ order.full_name }}!
+
+This is a confirmation of your order from AstroPrint.com. 
+
+Your order information is below:
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.date }}
+
+Order Total: €{{ order.order_total }}
+
+Your order has been passed to the seller, and they will process your order.
+
+We've got your phone number on file as {{ order.phone_number }}.
+
+If you have any questions, feel free to contact us at {{ contact_email }} quoting your order number.
+
+Thank you for your order!
+
+Sincerely,
+
+AstroPrint.com
