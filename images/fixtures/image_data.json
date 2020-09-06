@@ -5,11 +5,11 @@
 		"fields": {
 			"make": "Nikon" ,
 			"model": "D800",
-			"focal_length": 17.0,
+			"focal_length": 17,
 			"aperture": "f/2.8",
-			"shutter_speed_sec": 20.0,
-			"iso": 1250.0,
-			"country": "United Kingdom",
+			"shutter_speed_sec": 20,
+			"iso": 1250,
+			"country": "GB",
 			"city": "Skipton"
 		}
 	},
@@ -19,12 +19,12 @@
 		"fields": {
 			"make": "other",
 			"model": "other",
-			"focal_length": 0.0,
-			"aperture": "not provided",
-			"shutter_speed_sec": 0.0,
-			"iso": 0.0,
-			"country": "Ukrane",
-			"city": "not provided"
+			"focal_length": 0,
+			"aperture": "N/A",
+			"shutter_speed_sec": 0,
+			"iso": 0,
+			"country": "UA",
+			"city": "N/A"
 		}
 	},
 	{
@@ -34,9 +34,9 @@
 			"make": "Sony" ,
 			"model": "ILCE-7RM2",
 			"focal_length": 0,
-			"aperture": "not provided",
-			"shutter_speed_sec": 10.0,
-			"iso": 800.0,
+			"aperture": "N/A",
+			"shutter_speed_sec": 10,
+			"iso": 800,
 			"country": "US",
 			"city": "Timothy Lake"
 		}
@@ -47,11 +47,11 @@
 		"fields": {
 			"make": "Fuji Film" ,
 			"model": "X-T20",
-			"focal_length": 18.0,
+			"focal_length": 18,
 			"aperture": "f/6.4",
-			"shutter_speed_sec": 30.0,
-			"iso": 12800.0,
-			"country": "Australia",
+			"shutter_speed_sec": 30,
+			"iso": 12800,
+			"country": "AU",
 			"city": "Narrabri"
 		}
 	},
@@ -61,12 +61,12 @@
 		"fields": {
 			"make": "other",
 			"model": "other",
-			"focal_length": 0.0,
-			"aperture": "not provided",
-			"shutter_speed_sec": 0.0,
-			"iso": 0.0,
-			"country": "not provided",
-			"city": "not provided"
+			"focal_length": 0,
+			"aperture": "N/A",
+			"shutter_speed_sec": 0,
+			"iso": 0,
+			"country": "",
+			"city": "N/A"
 		}
 	},
 	{
@@ -75,10 +75,10 @@
 		"fields": {
 			"make": "Nikon" ,
 			"model": "D750",
-			"focal_length": 24.0,
+			"focal_length": 24,
 			"aperture": "f/2.8",
-			"shutter_speed_sec": 30.0,
-			"iso": 3200.0,
+			"shutter_speed_sec": 30,
+			"iso": 3200,
 			"country": "US",
 			"city": "Yosemite Valley"
 		}
@@ -89,11 +89,11 @@
 		"fields": {
 			"make": "Cannon" ,
 			"model": "EOS 80D",
-			"focal_length": 400.0,
+			"focal_length": 400,
 			"aperture": "f/5.6",
-			"shutter_speed_sec": 0.12,
-			"iso": 2000.0,
-			"country": "Switzerland",
+			"shutter_speed_sec": 0,
+			"iso": 2000,
+			"country": "CH",
 			"city": "Obergoms"
 		}
 	},
@@ -103,10 +103,10 @@
 		"fields": {
 			"make": "other",
 			"model": "other",
-			"focal_length": 0.0,
-			"aperture": "not provided",
-			"shutter_speed_sec": 0.0,
-			"iso": 0.0,
+			"focal_length": 0,
+			"aperture": "N/A",
+			"shutter_speed_sec": 0,
+			"iso": 0,
 			"country": "US",
 			"city": "Naples"
 		}
@@ -117,10 +117,10 @@
 		"fields": {
 			"make": "Nikon" ,
 			"model": "D5100",
-			"focal_length": 19.0,
+			"focal_length": 19,
 			"aperture": "f/3.5",
-			"shutter_speed_sec": 25.0,
-			"iso": 100.0,
+			"shutter_speed_sec": 25,
+			"iso": 100,
 			"country": "US",
 			"city": "Brekenridge"
 		}
@@ -131,12 +131,12 @@
 		"fields": {
 			"make": "Nikon" ,
 			"model": "D3100",
-			"focal_length": 23.0,
+			"focal_length": 23,
 			"aperture": "f/2.8",
-			"shutter_speed_sec": 30.0,
-			"iso": 800.0,
-			"country": "not provided",
-			"city": "not provided"
+			"shutter_speed_sec": 30,
+			"iso": 800,
+			"country": "",
+			"city": "N/A"
 		}
 	}
 ]

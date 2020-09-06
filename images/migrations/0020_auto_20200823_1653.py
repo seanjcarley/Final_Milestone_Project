@@ -10,14 +10,18 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AlterField(
+        migrations.RemoveField(
             model_name='image',
             name='img_status',
-            field=models.BooleanField(default=False),
         ),
         migrations.AlterField(
             model_name='image',
             name='tmnl_img',
             field=models.ImageField(upload_to='user_images/', verbose_name=''),
+        ),
+        migrations.AddField(
+            model_name='image',
+            name='img_status',
+            field=models.BooleanField(default=False),
         ),
     ]

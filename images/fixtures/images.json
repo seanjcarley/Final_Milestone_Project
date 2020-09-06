@@ -3,160 +3,180 @@
 		"pk": 1,
 		"model": "images.image",
 		"fields": {
-			"image": "v2osk-G3EDWxWJXpI-unsplash.jpg",
+			"prev_img": "v2osk-G3EDWxWJXpI-unsplash.jpg",
             "tmnl_img": "tmnl-v2osk-G3EDWxWJXpI-unsplash.jpg",
 			"img_title": "Malham Cove",
 			"img_taken": "2017-01-05",
 			"base_price": 5.00,
 			"user_id": 2,
-			"img_status": 1,
+			"img_status": false,
 			"vol_sold": 0,
 			"img_rating": 0,
-			"img_data_id": 1
+			"img_data_id": 1,
+            "date_added": "2020-09-06 13:15",
+            "last_updated": "2020-09-06 13:15"
 		}
 	},
 	{
 		"pk": 2,
 		"model": "images.image",
 		"fields": {
-			"image": "maxim-fiyavchuk-zPKLNg6bqhE-unsplash.jpg",
+			"prev_img": "maxim-fiyavchuk-zPKLNg6bqhE-unsplash.jpg",
             "tmnl_img": "tmnl-maxim-fiyavchuk-zPKLNg6bqhE-unsplash.jpg",
 			"img_title": "Milkyway Above",
 			"img_taken": "2018-03-04",
 			"base_price": 5.00,
 			"user_id": 3,
-			"img_status": 1,
+			"img_status": false,
 			"vol_sold": 0,
 			"img_rating": 0,
-			"img_data_id": 2
+			"img_data_id": 2,
+            "date_added": "2020-09-06 13:15",
+            "last_updated": "2020-09-06 13:15"
 		}
 	},
 	{
 		"pk": 3,
 		"model": "images.image",
 		"fields": {
-			"image": "clint-mckoy-ZoR6x0qTkXk-unsplash.jpg",
+			"prev_img": "clint-mckoy-ZoR6x0qTkXk-unsplash.jpg",
             "tmnl_img": "tmnl-clint-mckoy-ZoR6x0qTkXk-unsplash.jpg",
 			"img_title": "Wondering Skies",
 			"img_taken": "2018-07-21",
 			"base_price": 5.00,
 			"user_id": 4,
-			"img_status": 1,
+			"img_status": false,
 			"vol_sold": 0,
 			"img_rating": 0,
-			"img_data_id": 3
+			"img_data_id": 3,
+            "date_added": "2020-09-06 13:15",
+            "last_updated": "2020-09-06 13:15"
 		}
 	},
 	{
 		"pk": 4,
 		"model": "images.image",
 		"fields": {
-			"image": "emily-goodhart-24sz8ynEsn8-unsplash.jpg",
+			"prev_img": "emily-goodhart-24sz8ynEsn8-unsplash.jpg",
             "tmnl_img": "tmnl-emily-goodhart-24sz8ynEsn8-unsplash.jpg",
 			"img_title": "Family Farm",
 			"img_taken": "2018-04-18",
 			"base_price": 5.00,
 			"user_id": 5,
-			"img_status": 1,
+			"img_status": false,
 			"vol_sold": 0,
 			"img_rating": 0,
-			"img_data_id": 4
+			"img_data_id": 4,
+            "date_added": "2020-09-06 13:15",
+            "last_updated": "2020-09-06 13:15"
 		}
 	},
 	{
 		"pk": 5,
 		"model": "images.image",
 		"fields": {
-			"image": "quentin-kemmel-yoEMDhSV_kE-unsplash.jpg",
+			"prev_img": "quentin-kemmel-yoEMDhSV_kE-unsplash.jpg",
             "tmnl_img": "tmnl-quentin-kemmel-yoEMDhSV_kE-unsplash.jpg",
 			"img_title": "Space Station",
 			"img_taken": "2018-08-08",
 			"base_price": 5.00,
 			"user_id": 6,
-			"img_status": 1,
+			"img_status": false,
 			"vol_sold": 0,
 			"img_rating": 0,
-			"img_data_id": 5
+			"img_data_id": 5,
+            "date_added": "2020-09-06 13:15",
+            "last_updated": "2020-09-06 13:15"
 		}
 	},
 	{
 		"pk": 6,
 		"model": "images.image",
 		"fields": {
-			"image": "casey-horner-j0ZPSFuybvg-unsplash.jpg",
+			"prev_img": "casey-horner-j0ZPSFuybvg-unsplash.jpg",
             "tmnl_img": "tmnl-casey-horner-j0ZPSFuybvg-unsplash.jpg",
 			"img_title": "Falls Under Starlight",
 			"img_taken": "2017-08-12",
 			"base_price": 5.00,
 			"user_id": 7,
-			"img_status": 1,
+			"img_status": false,
 			"vol_sold": 0,
 			"img_rating": 0,
-			"img_data_id": 6
+			"img_data_id": 6,
+            "date_added": "2020-09-06 13:15",
+            "last_updated": "2020-09-06 13:15"
 		}
 	},
 	{
 		"pk": 7,
 		"model": "images.image",
 		"fields": {
-			"image": "martin-adams-qriVlQKnqS8-unsplash.jpg",
+			"prev_img": "martin-adams-qriVlQKnqS8-unsplash.jpg",
             "tmnl_img": "tmnl-martin-adams-qriVlQKnqS8-unsplash.jpg",
 			"img_title": "Blood Moon",
 			"img_taken": "2018-07-30",
 			"base_price": 5.00,
 			"user_id": 8,
-			"img_status": 1,
+			"img_status": false,
 			"vol_sold": 0,
 			"img_rating": 0,
-			"img_data_id": 7
+			"img_data_id": 7,
+            "date_added": "2020-09-06 13:15",
+            "last_updated": "2020-09-06 13:15"
 		}
 	},
 	{
 		"pk": 8,
 		"model": "images.image",
 		"fields": {
-			"image": "alex-perez-JqBuBWkkMAs-unsplash.jpg",
+			"prev_img": "alex-perez-JqBuBWkkMAs-unsplash.jpg",
             "tmnl_img": "tmnl-alex-perez-JqBuBWkkMAs-unsplash.jpg",
 			"img_title": "Lost in the Stars",
 			"img_taken": "2018-02-12",
 			"base_price": 5.00,
 			"user_id": 9,
-			"img_status": 1,
+			"img_status": false,
 			"vol_sold": 0,
 			"img_rating": 0,
-			"img_data_id": 8
+			"img_data_id": 8,
+            "date_added": "2020-09-06 13:15",
+            "last_updated": "2020-09-06 13:15"
 		}
 	},
 	{
 		"pk": 9,
 		"model": "images.image",
 		"fields": {
-			"image": "lucas-ludwig-fKACu7wq6U4-unsplash.jpg",
+			"prev_img": "lucas-ludwig-fKACu7wq6U4-unsplash.jpg",
             "tmnl_img": "tmnl-lucas-ludwig-fKACu7wq6U4-unsplash.jpg",
 			"img_title": "Mountian Nights",
 			"img_taken": "2018-06-01",
 			"base_price": 5.00,
 			"user_id": 10,
-			"img_status": 1,
+			"img_status": false,
 			"vol_sold": 0,
 			"img_rating": 0,
-			"img_data_id": 9
+			"img_data_id": 9,
+            "date_added": "2020-09-06 13:15",
+            "last_updated": "2020-09-06 13:15"
 		}
 	},
 	{
 		"pk": 10,
 		"model": "images.image",
 		"fields": {
-			"image": "michal-janek-3NeiQ8HI6Uo-unsplash.jpg",
+			"prev_img": "michal-janek-3NeiQ8HI6Uo-unsplash.jpg",
             "tmnl_img": "tmnl-michal-janek-3NeiQ8HI6Uo-unsplash.jpg",
 			"img_title": "Million Stars",
 			"img_taken": "2016-12-30",
 			"base_price": 5.00,
 			"user_id": 11,
-			"img_status": 1,
+			"img_status": false,
 			"vol_sold": 0,
 			"img_rating": 0,
-			"img_data_id": 10
+			"img_data_id": 10,
+            "date_added": "2020-09-06 13:15",
+            "last_updated": "2020-09-06 13:15"
 		}
 	}
 ]
