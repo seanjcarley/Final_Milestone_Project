@@ -1,4 +1,5 @@
 from django.test import TestCase
+from django.contrib.auth.models import User
 
 
 # Create your tests here.
@@ -12,7 +13,7 @@ class TestViews(TestCase):
 
     def test_user_images(self):
         """ test user images view """
-        response = self.client.get('/images/5/')
-        print(response)
+        user = User.objects.create(username='test')
+        response = self.client.get(f'/images/{user.id}/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'images/user_images.html')

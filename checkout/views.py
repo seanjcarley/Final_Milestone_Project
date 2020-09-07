@@ -53,7 +53,6 @@ def checkout(request):
         }
 
         order_form = OrderForm(form_data)
-        # print(order_form, order_form.is_valid())
         if order_form.is_valid():
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
