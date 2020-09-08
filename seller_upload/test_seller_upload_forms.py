@@ -25,8 +25,9 @@ class TestAddImageForm(TestCase):
         """ test the number of fields in the meta """
         form = AddSellerImage()
         self.assertEqual(
-            form.Meta.fields, ('img_title', 'img_taken', 'base_price',
-            'prev_img', 'tmnl_img'))
+            form.Meta.fields, (
+                'img_title', 'img_taken', 'base_price',
+                'prev_img', 'tmnl_img'))
 
 
 class TestAddImageDataForm(TestCase):
@@ -35,5 +36,6 @@ class TestAddImageDataForm(TestCase):
         """ test the number of fields in the meta """
         form = AddSellerImageData()
         self.assertEqual(
-            form.Meta.fields, ('make', 'model', 'focal_length', 'aperture',
-            'shutter_speed_sec', 'iso', 'country', 'city'))
+            form.Meta.fields, (
+                'make', 'model', 'focal_length', 'aperture',
+                'shutter_speed_sec', 'iso', 'country', 'city'))

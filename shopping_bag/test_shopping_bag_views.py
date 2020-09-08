@@ -1,4 +1,4 @@
-from django.test import TestCase, Client
+from django.test import TestCase
 from django.contrib.auth.models import User
 from images.models import Image
 
@@ -15,10 +15,9 @@ class TestShoppingBagViews(TestCase):
 
     def test_add_to_bag(self):
         """ test add to bag view """
-        c = Client()
         user = User.objects.create(username='test')
         image = Image.objects.create(
             img_title='test', base_price=0, user_id=user)
         bag = {image.id: 1}
-        response = c.post('/images/', bag)
+        response = self.client.post('/images/', bag)
         self.assertEqual(response.status_code, 200)
