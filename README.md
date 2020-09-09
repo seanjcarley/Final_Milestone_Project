@@ -162,6 +162,25 @@ if 'USE_AWS' in os.environ:
 
 ```
 
+### Dev Environment Variables:
+* DEVELOPMENT
+* SECRET_KEY (django secret key)
+* STRIPE_PRIV_KEY (private key for use with Stripe payments)
+* STRIPE_PUB_KEY (public key for use with Stripe payments)
+* STRIPE_WH_KEY (key for use with Stripe WebHooks)
+
+### Prod Emvironment Variables:
+* AWS_ACCESS_KEY_ID
+* AWS_SECRET_ACCESS_KEY
+* DATABASE_URL (url for heroku PostgreSQL instance)
+* EMAIL_HOST_PASS (password for email sending)
+* EMAIL_HOST_USER (username for email sending)
+* SECRET_KEY (django secret key)
+* STRIPE_PRV_KEY (private key for use with Stripe payments)
+* STRIPE_PUB_KEY (public key for use with Stripe payments)
+* STRIPE_WH_KEY (key for use with Stripe WebHooks)
+* USE_AWS
+
 ### Issues Experienced with Deployment to Heroku
 When I was setting up the PostGres database on Heroku, I recveived an error 
 ralating to an issue pushing the migrations. The issue was related to the 
