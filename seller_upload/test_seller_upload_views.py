@@ -1,9 +1,7 @@
-from django.test import TestCase, RequestFactory, Client
+from django.test import TestCase, RequestFactory
 from django.contrib.auth.models import User, AnonymousUser
-from images.models import Image, Image_Data
-from .views import all_user_images, add_image
+from images.models import Image
 from io import BytesIO
-from django.contrib.messages import middleware
 
 
 class TestSellerUploadViews(TestCase):
@@ -14,24 +12,6 @@ class TestSellerUploadViews(TestCase):
             username='testuser', email='test@test.iw', password='dR0w$$Ap')
         self.img = BytesIO(b'mybinarydata')
         self.img.name = 'myimage.jpg'
-
-    # def test_add_image(self):
-    #     response = self.client.post('seller_upload/', {
-    #         'img_title': 'Test',
-    #         'img_taken': '2020-01-01',
-    #         'base_price': 0,
-    #         'prev_img': self.img,
-    #         'tmnl_img': self.img,
-    #         'make': 'test',
-    #         'model': 'test',
-    #         'focal_length': 1,
-    #         'aperture': 'test',
-    #         'shutter_speed_sec': 2,
-    #         'iso': 3,
-    #         'country': 'IE',
-    #         'city': 'test',
-    #     })
-    #     self.assert
 
     def test_delete_image_not_logged_in(self):
         """ test delete image view not logged in"""
