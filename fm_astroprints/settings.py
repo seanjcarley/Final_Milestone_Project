@@ -21,12 +21,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', '')
+SECRET_KEY = os.environ.get('SECRET_KEY', 'k(cx7d7fww8s+g%99+=x)icfnoovfbgx(zea505g29nxw_)dlc')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['sc-finalmilestone-astroprint.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['ALLOWED_HOST', '127.0.0.1']
 
 
 # Application definition
@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'seller_upload',
     # other
     'crispy_forms',
+    'crispy_bootstrap5',
     'storages',
 ]
 
@@ -67,7 +68,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'fm_astroprints.urls'
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 TEMPLATES = [
     {
@@ -213,3 +214,7 @@ STRIPE_PRV_KEY = os.getenv('STRIPE_PRV_KEY', '')
 STRIPE_PUB_KEY = os.getenv('STRIPE_PUB_KEY', '')
 STRIPE_WH_KEY = os.getenv('STRIPE_WH_KEY', '')
 STRIPE_CURRENCY = 'eur'
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
