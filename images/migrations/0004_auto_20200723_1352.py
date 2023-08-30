@@ -10,7 +10,11 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AlterField(
+        migrations.RemoveField(
+            model_name='image',
+            name='img_status',
+        ),
+        migrations.AddField(
             model_name='image',
             name='img_status',
             field=models.IntegerField(),
